@@ -2,6 +2,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+// Components
+import ThemeSwitcher from './ThemeSwitcher';
+
 const SidePanel = () => {
     const [isSidePanelOpen, setIsSidePanelOpen] = useState(false);
 
@@ -20,6 +23,7 @@ const SidePanel = () => {
             </button>
             <div className={`sidepanel ${isSidePanelOpen ? 'open' : ''}`}>
                 <h1>Side Panel</h1>
+                <ThemeSwitcher />
                 <nav>
                     <button className="close-btn" onClick={closeSidePanel}>
                         &times;
