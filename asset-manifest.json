@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/allenhurstcleaners_v2/static/css/main.d8b03adb.css",
-    "main.js": "/allenhurstcleaners_v2/static/js/main.f118d75e.js",
+    "main.js": "/allenhurstcleaners_v2/static/js/main.84fc8941.js",
     "static/js/453.bc7866fb.chunk.js": "/allenhurstcleaners_v2/static/js/453.bc7866fb.chunk.js",
     "index.html": "/allenhurstcleaners_v2/index.html",
     "main.d8b03adb.css.map": "/allenhurstcleaners_v2/static/css/main.d8b03adb.css.map",
-    "main.f118d75e.js.map": "/allenhurstcleaners_v2/static/js/main.f118d75e.js.map",
+    "main.84fc8941.js.map": "/allenhurstcleaners_v2/static/js/main.84fc8941.js.map",
     "453.bc7866fb.chunk.js.map": "/allenhurstcleaners_v2/static/js/453.bc7866fb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d8b03adb.css",
-    "static/js/main.f118d75e.js"
+    "static/js/main.84fc8941.js"
   ]
 }
