@@ -1,11 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+import './assets/styles/App.css';
 
 function App() {
   return (
-    <>
-      <h1>Hello World!</h1>
-    </>
+    <div>
+      <h1>Hello World</h1>
+    </div>
   );
 }
 
