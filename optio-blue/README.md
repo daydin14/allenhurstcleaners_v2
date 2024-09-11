@@ -75,8 +75,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### [0.2.0]
 
-- Created collapsible SidePanel from SideBar
 - Refactored Header with collapsible SidePanel
+- Refactor footer component and add tooltip for author information
 
 ### [0.1.0] - 2024-09-10
 
