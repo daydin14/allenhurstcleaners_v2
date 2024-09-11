@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -67,4 +67,19 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
+
+# Allenhurst Cleaners v2
+
+## Changelog
+
+### [0.2.0]
+
+- Refactored Header with collapsible SidePanel
+- Refactor footer component and add tooltip for author information
+- Refactor styles to use CSS variables for colors
+- Refactor SidePanel and Sidebar components, add ThemeSwitcher
+
+### [0.1.0] - 2024-09-10
+
+- Initial release

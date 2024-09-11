@@ -1,14 +1,21 @@
-/* src/assets/styles/App.css */
+:root {
+  --primary-color: #006400; /* Dark Green */
+  --secondary-color: #ffd700; /* Yellow */
+  --background-color: #ffffff; /* Light mode background */
+  --text-color: #000000; /* Light mode text */
+}
+
+[data-theme="dark"] {
+  --background-color: #333333; /* Dark mode background */
+  --text-color: #ffffff; /* Dark mode text */
+}
+
 .App {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
-
-.header {
-  background-color: #282c34;
-  padding: 20px;
-  color: white;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .header nav ul {
@@ -21,24 +28,123 @@
   margin: 0 10px;
 }
 
+.header nav ul li a {
+  color: var(--secondary-color);
+}
+
 .main-content {
   display: flex;
   flex: 1;
 }
 
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+.hamburger {
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  background-color: var(--primary-color);
+}
+
+.sidepanel {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: var(--primary-color);
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+  z-index: 1000;
+}
+
+.sidepanel.open {
+  left: 0;
+}
+
+.sidepanel ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidepanel ul li {
+  padding: 8px 16px;
+  text-align: left;
+}
+
+.sidepanel ul li a {
+  color: var(--text-color);
+  text-decoration: none;
+  display: block;
+}
+
+.sidepanel ul li a:hover {
+  background-color: #575757;
+}
+
 .sidebar {
-  width: 200px;
-  background-color: #f4f4f4;
-  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: -250px; /* Hidden by default */
+  width: 250px;
+  height: 65%;
+  margin-top: 8%;
+  background-color: var(--primary-color);
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+  z-index: 1000;
 }
 
 .sidebar.open {
+  left: 0;
+}
+
+.sidebar h1 {
+  color: var(--text-color);
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 8px 16px;
+  text-align: left;
+}
+
+.sidebar ul li a {
+  color: var(--text-color);
+  text-decoration: none;
   display: block;
 }
 
-.sidebar button {
-  display: block;
-  margin-bottom: 10px;
+.sidebar ul li a:hover {
+  background-color: #575757;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
 }
 
 .content {
@@ -47,8 +153,47 @@
 }
 
 .footer {
-  background-color: #282c34;
-  padding: 20px;
-  color: white;
+  position: relative;
   text-align: center;
+  padding: 35px;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+.footer-text {
+  display: inline-block;
+  position: relative;
+}
+
+.footer-text .tooltip {
+  visibility: hidden;
+  width: 160px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: -25px; /* Position the tooltip below the text */
+  left: 50%;
+  margin-left: -80px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.footer-text .tooltip::after {
+  content: "";
+  position: absolute;
+  top: -5px; /* Arrow at the top of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
+
+.footer-text:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
 }
