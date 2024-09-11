@@ -13,7 +13,7 @@ import Routes from './Routes';
 
 function App() {
   return (
-    <Router>
+    <Router basename='/allenhurstcleaners_v2/'>
       <div className="App">
         <Header />
         <div className="main-content">
