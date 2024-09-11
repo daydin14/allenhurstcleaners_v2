@@ -2,18 +2,19 @@
 import React, { useState } from 'react';
 
 const Sidebar = () => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isSidBarOpen, setIsSidBarOpen] = useState(false);
 
     const toggleSidebar = () => {
-        setIsOpen(!isOpen);
+        setIsSidBarOpen(!isSidBarOpen);
     };
 
     return (
-        <div className={`sidebar ${isOpen ? 'open' : ''}`}>
+        <div>
+            <h1>Side Bar</h1>
             <button onClick={toggleSidebar}>
-                {isOpen ? 'Close' : 'Open'} Sidebar
+                {isSidBarOpen ? 'Close' : 'Open'} Sidebar
             </button>
-            {isOpen && (
+            {isSidBarOpen && (
                 <ul>
                     <li><a href="#section1">Section 1</a></li>
                     <li><a href="#section2">Section 2</a></li>
