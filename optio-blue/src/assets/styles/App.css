@@ -1,7 +1,21 @@
+:root {
+  --primary-color: #006400; /* Dark Green */
+  --secondary-color: #ffd700; /* Yellow */
+  --background-color: #ffffff; /* Light mode background */
+  --text-color: #000000; /* Light mode text */
+}
+
+[data-theme="dark"] {
+  --background-color: #333333; /* Dark mode background */
+  --text-color: #ffffff; /* Dark mode text */
+}
+
 .App {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .header nav ul {
@@ -12,6 +26,10 @@
 .header nav ul li {
   display: inline;
   margin: 0 10px;
+}
+
+.header nav ul li a {
+  color: var(--secondary-color);
 }
 
 .main-content {
@@ -25,16 +43,17 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  background-color: #333;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--text-color);
 }
 
 .hamburger {
   font-size: 24px;
   background: none;
   border: none;
-  color: white;
+  color: var(--text-color);
   cursor: pointer;
+  background-color: var(--primary-color);
 }
 
 .sidepanel {
@@ -43,15 +62,11 @@
   left: -250px;
   width: 250px;
   height: 100%;
-  background-color: #333;
+  background-color: var(--primary-color);
   overflow-x: hidden;
   transition: 0.3s;
   padding-top: 60px;
   z-index: 1000;
-}
-
-.sidepanel.open {
-  left: 0;
 }
 
 .sidepanel.open {
@@ -69,7 +84,7 @@
 }
 
 .sidepanel ul li a {
-  color: white;
+  color: var(--text-color);
   text-decoration: none;
   display: block;
 }
@@ -78,8 +93,27 @@
   background-color: #575757;
 }
 
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Hidden by default */
+  width: 250px;
+  height: 65%;
+  margin-top: 8%;
+  background-color: var(--primary-color);
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+  z-index: 1000;
+}
+
 .sidebar.open {
   left: 0;
+}
+
+.sidebar h1 {
+  color: var(--text-color);
+  text-align: center;
 }
 
 .sidebar ul {
@@ -93,7 +127,7 @@
 }
 
 .sidebar ul li a {
-  color: white;
+  color: var(--text-color);
   text-decoration: none;
   display: block;
 }
@@ -109,7 +143,7 @@
   font-size: 24px;
   background: none;
   border: none;
-  color: white;
+  color: var(--text-color);
   cursor: pointer;
 }
 
@@ -122,8 +156,8 @@
   position: relative;
   text-align: center;
   padding: 35px;
-  background-color: #333;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--text-color);
 }
 
 .footer-text {
