@@ -7,10 +7,13 @@ import NavMenu from './NavMenu';
 
 const Header = () => {
     return (
-        <header className="header">
-            <SidePanel />
-            <NavMenu />
-        </header>
+        <>
+            <header className="header">
+                <SidePanel />
+                <h1>Allenhurst Cleaners</h1>
+                <NavMenu />
+            </header>
+        </>
     );
 };
 

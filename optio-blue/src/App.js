@@ -17,7 +17,7 @@ function App() {
       <div className="App">
         <Header />
         <div className="main-content">
-          <Sidebar />
+          {/* <Sidebar /> */}
           <div className="content">
             <Routes />
           </div>

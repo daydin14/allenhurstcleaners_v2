@@ -17,7 +17,7 @@ const SidePanel = () => {
     };
 
     return (
-        <div>
+        <>
             <button className="hamburger" onClick={toggleSidePanel}>
                 &#9776;
             </button>
@@ -36,7 +36,7 @@ const SidePanel = () => {
                     </ul>
                 </nav>
             </div>
-        </div>
+        </>
     )
 }
 
