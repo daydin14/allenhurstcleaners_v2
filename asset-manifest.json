@@ -1,15 +1,24 @@
 {
   "files": {
-    "main.css": "/allenhurstcleaners_v2/static/css/main.8fcf0873.css",
-    "main.js": "/allenhurstcleaners_v2/static/js/main.bee9ac23.js",
+    "main.css": "/allenhurstcleaners_v2/static/css/main.b5e7d785.css",
+    "main.js": "/allenhurstcleaners_v2/static/js/main.88ec7fd6.js",
     "static/js/453.bc7866fb.chunk.js": "/allenhurstcleaners_v2/static/js/453.bc7866fb.chunk.js",
+    "static/media/conveyer2.jpg": "/allenhurstcleaners_v2/static/media/conveyer2.dfc622447e7146c118ad.jpg",
+    "static/media/sorting.jpg": "/allenhurstcleaners_v2/static/media/sorting.56d05876c9fd58a2c072.jpg",
+    "static/media/pressing.jpg": "/allenhurstcleaners_v2/static/media/pressing.3424830ab2d5260b65a0.jpg",
+    "static/media/conveyer.jpg": "/allenhurstcleaners_v2/static/media/conveyer.a3e1c7a2f4f76cca5170.jpg",
+    "static/media/spotting.jpg": "/allenhurstcleaners_v2/static/media/spotting.355263d25e19b25af346.jpg",
+    "static/media/machine.jpg": "/allenhurstcleaners_v2/static/media/machine.ea6bece0794cf85a5aef.jpg",
+    "static/media/front.jpg": "/allenhurstcleaners_v2/static/media/front.098eaa3af0a6e2fadc22.jpg",
+    "static/media/store.jpg": "/allenhurstcleaners_v2/static/media/store.6a846ebe2d1a464212d7.jpg",
+    "static/media/store2.jpg": "/allenhurstcleaners_v2/static/media/store2.de6fcc9c6649fe9542c6.jpg",
     "index.html": "/allenhurstcleaners_v2/index.html",
-    "main.8fcf0873.css.map": "/allenhurstcleaners_v2/static/css/main.8fcf0873.css.map",
-    "main.bee9ac23.js.map": "/allenhurstcleaners_v2/static/js/main.bee9ac23.js.map",
+    "main.b5e7d785.css.map": "/allenhurstcleaners_v2/static/css/main.b5e7d785.css.map",
+    "main.88ec7fd6.js.map": "/allenhurstcleaners_v2/static/js/main.88ec7fd6.js.map",
     "453.bc7866fb.chunk.js.map": "/allenhurstcleaners_v2/static/js/453.bc7866fb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8fcf0873.css",
-    "static/js/main.bee9ac23.js"
+    "static/css/main.b5e7d785.css",
+    "static/js/main.88ec7fd6.js"
   ]
 }
