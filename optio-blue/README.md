@@ -4,18 +4,19 @@
 
 ### [0.3.0] - 2024-09-12
 
-- Version Bump & Readme
-- Refactor package dependencies and add image import utility for carousel on home page
-- Refactor About, Contact, and Services pages
-- Refactor App.js, Routes.js, and components: wrapped in fragments
-  - Remove Sidebar component from App.js
-  - Remove ul element and replace it with NavMenu component in Sidebar.js
-- Refactor index.js and add Google Tag loading utility, update ignore .env(s)
-- Refactor meta tags and manifest.json for Allenhurst Cleaners
+- `Pull Request` : Refactor Allenhurst Cleaners website
+  - Version Bump & Readme
+  - Refactor package dependencies and add image import utility for carousel on home page
+  - Refactor About, Contact, and Services pages
+  - Refactor App.js, Routes.js, and components: wrapped in fragments
+    - Remove Sidebar component from App.js
+    - Remove ul element and replace it with NavMenu component in Sidebar.js
+  - Refactor index.js and add Google Tag loading utility, update ignore .env(s)
+  - Refactor meta tags and manifest.json for Allenhurst Cleaners
 
 ### [0.2.0] - 2024-09-11
 
-- `Pull Request:` : Refactor Header, Sidebar, and Footer components and add ThemeSwitcher
+- `Pull Request` : Refactor Header, Sidebar, and Footer components and add ThemeSwitcher
   - Refactor SidePanel and Sidebar components, add ThemeSwitcher
   - Refactor styles to use CSS variables for colors
   - Refactor footer component and add tooltip for author information
