@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/allenhurstcleaners_v2/static/css/main.5ae4cb80.css",
-    "main.js": "/allenhurstcleaners_v2/static/js/main.fd67343e.js",
+    "main.css": "/allenhurstcleaners_v2/static/css/main.8fcf0873.css",
+    "main.js": "/allenhurstcleaners_v2/static/js/main.bee9ac23.js",
     "static/js/453.bc7866fb.chunk.js": "/allenhurstcleaners_v2/static/js/453.bc7866fb.chunk.js",
     "index.html": "/allenhurstcleaners_v2/index.html",
-    "main.5ae4cb80.css.map": "/allenhurstcleaners_v2/static/css/main.5ae4cb80.css.map",
-    "main.fd67343e.js.map": "/allenhurstcleaners_v2/static/js/main.fd67343e.js.map",
+    "main.8fcf0873.css.map": "/allenhurstcleaners_v2/static/css/main.8fcf0873.css.map",
+    "main.bee9ac23.js.map": "/allenhurstcleaners_v2/static/js/main.bee9ac23.js.map",
     "453.bc7866fb.chunk.js.map": "/allenhurstcleaners_v2/static/js/453.bc7866fb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5ae4cb80.css",
-    "static/js/main.fd67343e.js"
+    "static/css/main.8fcf0873.css",
+    "static/js/main.bee9ac23.js"
   ]
 }
