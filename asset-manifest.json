@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/allenhurstcleaners_v2/static/css/main.e13315e4.css",
+    "main.css": "/allenhurstcleaners_v2/static/css/main.075ca48c.css",
     "main.js": "/allenhurstcleaners_v2/static/js/main.831d66b5.js",
     "static/js/453.bc7866fb.chunk.js": "/allenhurstcleaners_v2/static/js/453.bc7866fb.chunk.js",
     "static/media/conveyer2.jpg": "/allenhurstcleaners_v2/static/media/conveyer2.dfc622447e7146c118ad.jpg",
@@ -13,12 +13,12 @@
     "static/media/store.jpg": "/allenhurstcleaners_v2/static/media/store.6a846ebe2d1a464212d7.jpg",
     "static/media/store2.jpg": "/allenhurstcleaners_v2/static/media/store2.de6fcc9c6649fe9542c6.jpg",
     "index.html": "/allenhurstcleaners_v2/index.html",
-    "main.e13315e4.css.map": "/allenhurstcleaners_v2/static/css/main.e13315e4.css.map",
+    "main.075ca48c.css.map": "/allenhurstcleaners_v2/static/css/main.075ca48c.css.map",
     "main.831d66b5.js.map": "/allenhurstcleaners_v2/static/js/main.831d66b5.js.map",
     "453.bc7866fb.chunk.js.map": "/allenhurstcleaners_v2/static/js/453.bc7866fb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e13315e4.css",
+    "static/css/main.075ca48c.css",
     "static/js/main.831d66b5.js"
   ]
 }
