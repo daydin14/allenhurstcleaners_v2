@@ -5,6 +5,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import carous
 
 // Import images
 import images from '../utils/ImportImages';
+import Gmap from '../utils/Gmap';
 
 const Home = () => {
     return (
@@ -18,13 +19,7 @@ const Home = () => {
                 ))}
             </Carousel>
             <br />
-            <iframe
-                id="google-maps"
-                title="Allenhurst Cleaners"
-                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAEzsheyINm_Nq00YrzuUAXEL_6VkfSpS8&q=Allenhurst+Cleaners"
-                frameBorder=""
-                allowFullScreen
-            ></iframe>
+            <Gmap />
             <p>Hours of Operation:</p>
             <p>
                 Monday-Friday, 8:00AM - 4:00PM Saturday, 8:00AM - 3:00PM

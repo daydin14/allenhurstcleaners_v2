@@ -1,3 +1,4 @@
+// Gtag for Google Analytics
 export const loadGoogleTag = () => {
     const googleTagId = process.env.REACT_APP_GOOGLE_TAG_ID;
     if (!googleTagId) {

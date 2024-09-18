@@ -237,3 +237,14 @@
 .carousel-root {
   width: 500px;
 }
+
+.gmap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.gmap-details {
+  width: 25%;
+}
