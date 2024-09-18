@@ -197,3 +197,54 @@
   visibility: visible;
   opacity: 1;
 }
+
+.carousel .control-arrow {
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  background-color: var(--primary-color); /* Text color */
+  border-radius: 50%; /* Make the buttons round */
+  width: 40px; /* Adjust the width */
+  height: 40px; /* Adjust the height */
+  margin-top: -20px; /* Center the buttons vertically */
+}
+
+.carousel .control-prev.control-arrow {
+  left: 5px; /* Adjust the left position */
+}
+
+.carousel .control-next.control-arrow {
+  right: 5px; /* Adjust the right position */
+}
+
+.carousel .control-arrow:hover {
+  background: rgba(0, 0, 0, 0.8); /* Darker background on hover */
+}
+
+.carousel .control-arrow:before {
+  font-size: 20px; /* Adjust the icon size */
+}
+
+.carousel .carousel-status {
+  display: none; /* Hide the status indicator */
+}
+
+.carousel .carousel-image {
+  width: 100%;
+  max-width: 500px; /* Adjust the max-width as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin: 0 auto; /* Center the image */
+}
+
+.carousel-root {
+  width: 500px;
+}
+
+.gmap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.gmap-details {
+  width: 25%;
+}

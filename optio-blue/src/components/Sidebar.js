@@ -1,6 +1,9 @@
 // Dependencies
 import React, { useState } from 'react';
 
+// Components
+import NavMenu from './NavMenu';
+
 const Sidebar = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -22,11 +25,7 @@ const Sidebar = () => {
                     {'<'}
                 </button>
                 <h1>Side Bar</h1>
-                <ul>
-                    <li><a href="#section1">Section 1</a></li>
-                    <li><a href="#section2">Section 2</a></li>
-                    <li><a href="#section3">Section 3</a></li>
-                </ul>
+                <NavMenu onClick={closeSidebar} />
             </div>
         </div >
     );
