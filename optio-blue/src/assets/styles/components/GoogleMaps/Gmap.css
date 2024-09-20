@@ -1,0 +1,20 @@
+.gmap {
+  height: 400px;
+  width: 100%;
+}
+
+.info-window {
+  color: var(--text-color);
+  background-color: var(--background-color);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.info-window a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.info-window a:hover {
+  text-decoration: underline;
+}

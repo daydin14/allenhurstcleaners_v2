@@ -1,0 +1,45 @@
+.footer {
+  position: relative;
+  text-align: center;
+  padding: 35px;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+.footer-text {
+  display: inline-block;
+  position: relative;
+}
+
+.footer-text .tooltip {
+  visibility: hidden;
+  width: 160px;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: -25px; /* Position the tooltip below the text */
+  left: 50%;
+  margin-left: -80px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.footer-text .tooltip::after {
+  content: "";
+  position: absolute;
+  top: -5px; /* Arrow at the top of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+}
+
+.footer-text:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
