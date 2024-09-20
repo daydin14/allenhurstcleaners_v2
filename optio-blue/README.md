@@ -4,7 +4,10 @@
 
 ### [0.3.0] - 2024-09-12
 
+- Update package version to 0.3.0 in package-lock
 - `Pull Request` : Refactor Allenhurst Cleaners website
+  - Refactor CSS and add Google Maps component
+  - Update Readme to include PR #3's commit message
   - Version Bump & Readme
   - Refactor package dependencies and add image import utility for carousel on home page
   - Refactor About, Contact, and Services pages
