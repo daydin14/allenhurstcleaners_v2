@@ -15,12 +15,8 @@ const ThemeSwitcher = () => {
     return (
         <>
             <button onClick={toggleTheme}>
-                Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode
+                {theme === 'light' ? 'Light' : 'Dark'} Mode
             </button>
-            <label className="switch">
-                <input type="checkbox" checked={theme === 'dark'} onChange={toggleTheme} />
-                <span className="slider round">Toggle</span>
-            </label>
         </>
     );
 };
