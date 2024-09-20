@@ -2,6 +2,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+// Hooks
+import useIsMobile from '../hooks/useIsMobile';
+
 // Components
 import ThemeSwitcher from './ThemeSwitcher';
 
@@ -16,18 +19,21 @@ const SidePanel = () => {
         setIsSidePanelOpen(false);
     };
 
+    const isMobile = useIsMobile();
+
     return (
         <>
             <button className="hamburger" onClick={toggleSidePanel}>
-                &#9776;
+                &#9776;&nbsp;Allenhurst Cleaners
             </button>
             <div className={`sidepanel ${isSidePanelOpen ? 'open' : ''}`}>
-                <h1>Side Panel</h1>
-                <ThemeSwitcher />
-                <nav>
+                <div className="sidepanel-header">
+                    {!isMobile && <ThemeSwitcher />}
                     <button className="close-btn" onClick={closeSidePanel}>
                         &times;
                     </button>
+                </div>
+                <nav>
                     <ul>
                         <li><Link to="/" onClick={closeSidePanel}>Home</Link></li>
                         <li><Link to="/about" onClick={closeSidePanel}>About</Link></li>
@@ -37,7 +43,7 @@ const SidePanel = () => {
                 </nav>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default SidePanel
+export default SidePanel;
