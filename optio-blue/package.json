@@ -1,6 +1,6 @@
 {
   "name": "optio-blue",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "homepage": "https://daydin14.github.io/allenhurstcleaners_v2/",
   "private": true,
   "dependencies": {
@@ -41,6 +41,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "gh-pages": "^6.1.1"
   }
 }

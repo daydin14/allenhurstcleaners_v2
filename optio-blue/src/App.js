@@ -7,7 +7,7 @@ import './assets/styles/App.css';
 
 // Components
 import Header from './components/Header';
-import Sidebar from './components/Sidebar';
+// import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 import Routes from './Routes';
 
