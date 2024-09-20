@@ -2,6 +2,17 @@
 
 ## Changelog
 
+### [0.4.0] - 2024-09-XX
+
+- `Pull Request` : Allenhurst Cleaners website v2 initial live deploy
+  - Update Readme ChangeLog
+  - WIP Refactor Gmap, added useGoogleMapsApi hook
+  - Refactor Header and SidePanel components, Add useIsMobile hook for responsive design
+  - Refactor ThemeSwitcher component and ImportImages utility
+  - Add ServiceSquare component to About page
+  - Split up App.CSS styles per respective components & pages
+  - Update package version to 0.4.0 in package-lock
+
 ### [0.3.0] - 2024-09-12
 
 - Update package version to 0.3.0 in package-lock
