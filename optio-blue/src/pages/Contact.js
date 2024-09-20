@@ -1,35 +1,35 @@
 // Dependencies
-import React from 'react';
-import Gmap from '../utils/Gmap';
+import React, { useState, useEffect } from 'react';
+
+// Hooks
+import useGoogleMapsApi from '../hooks/useGoogleMapsApi';
+
+// Components
+import ErrorBoundary from '../components/GoogleMaps/ErrorBoundary';
+import Gmap from '../components/GoogleMaps/Gmap';
+import Gdetails from '../components/GoogleMaps/Gdetails';
 
 const Contact = () => {
+    const { googleMaps, error } = useGoogleMapsApi();
+    const [apiLoaded, setApiLoaded] = useState(false);
+
+    useEffect(() => {
+        if (googleMaps) {
+            setApiLoaded(true);
+        }
+    }, [googleMaps]);
+
+    if (error) {
+        return <div>Error loading Google Maps API: {error.message}</div>;
+    }
+
     return (
         <>
-            <Gmap />
+            <h1>Contact Us</h1>
+            <ErrorBoundary>
+                {apiLoaded ? <><Gmap id="map-contact" /> <Gdetails /></> : <div>Loading Google Maps API...</div>}
+            </ErrorBoundary>
             <h4>Leave us a Google Review!</h4>
-
-            <h4>Location:</h4>
-            <a href="https://www.google.com/maps/place/Allenhurst+Cleaners/@40.2336282,-74.00932,17z/data=!3m1!4b1!4m5!3m4!1s0x89c2260d488df47d:0x908175fc51c575c8!8m2!3d40.2336234!4d-74.0071391">
-                530 Main St. Allenhurst, NJ 07711
-            </a>
-
-            <h4>Phone#:</h4>
-            <p>
-                Call us @ &emsp; <a href="tel:7325314213">732-531-4213</a>
-            </p>
-            <p>Leave us message with your name and number.</p>
-
-            <h4>Email:</h4>
-            <p>
-                <a href="mailto:allenhurstcleaners@gmail.com">
-                    allenhurstcleaners@gmail.com
-                </a>
-            </p>
-            <p>For in-depth inquiries and concerns, email us!</p>
-            <button type="submit">
-                <a href="mailto:allenhurstcleaners@gmail.com">Message Us Here!</a>
-            </button>
-            <br />
         </>
     );
 };
