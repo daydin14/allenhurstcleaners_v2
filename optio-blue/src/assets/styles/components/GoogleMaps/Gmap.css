@@ -1,8 +1,3 @@
-.gmap {
-  height: 400px;
-  width: 100%;
-}
-
 .info-window {
   color: var(--text-color);
   background-color: var(--background-color);
