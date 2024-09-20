@@ -1,31 +1,19 @@
 // Dependencies
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
+
+// Styles
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import carousel styles
 
 // Hooks
-import useGoogleMapsApi from '../hooks/useGoogleMapsApi';
 
 // Components
-import ErrorBoundary from '../components/GoogleMaps/ErrorBoundary';
 import Gmap from '../components/GoogleMaps/Gmap';
 
 // Utils
 import images from '../utils/ImportImages';
 
 const Home = () => {
-    const { googleMaps, error } = useGoogleMapsApi();
-    const [apiLoaded, setApiLoaded] = useState(false);
-
-    useEffect(() => {
-        if (googleMaps) {
-            setApiLoaded(true);
-        }
-    }, [googleMaps]);
-
-    if (error) {
-        return <div>Error loading Google Maps API: {error.message}</div>;
-    }
 
     return (
         <>
@@ -37,9 +25,7 @@ const Home = () => {
                 ))}
             </Carousel>
             <h1>530 Main Street</h1>
-            <ErrorBoundary>
-                {apiLoaded ? <Gmap id="map-home" /> : <div>Loading Google Maps API...</div>}
-            </ErrorBoundary>
+            <Gmap id="map-home" />
             <p>Hours of Operation:</p>
             <p>Monday-Friday, 8:00AM - 4:00PM Saturday, 8:00AM - 3:00PM</p>
             <p>

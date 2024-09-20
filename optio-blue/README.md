@@ -5,6 +5,7 @@
 ### [0.4.0] - 2024-09-XX
 
 - `Pull Request` : Allenhurst Cleaners website v2 initial live deploy
+  - Refactor Gmap to use newly added @react-google-maps/api dependency
   - Update Readme ChangeLog
   - WIP Refactor Gmap, added useGoogleMapsApi hook
   - Refactor Header and SidePanel components, Add useIsMobile hook for responsive design
