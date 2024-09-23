@@ -5,6 +5,9 @@
 ### [0.4.0] - 2024-09-XX
 
 - `Pull Request` : Allenhurst Cleaners website v2 initial live deploy
+  - Update Readme ChangeLog
+  - Refactor Gdetails to use usePlaceDetails hook, updated Gmap with place marker
+  - Refactor Contact and Home pages, add usePlaceDetails hook
   - Refactor Gmap.css and Gmap.js, and remove ErrorBoundary.js
   - Refactor Gmap to use newly added @react-google-maps/api dependency
   - Update Readme ChangeLog
