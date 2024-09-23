@@ -1,6 +1,9 @@
-function importAll(r) {
+// rc stands for "require.content"
+function importAll(rc) {
     let images = {};
-    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+    rc.keys().forEach((item, index) => {
+        images[item.replace('./', '')] = rc(item);
+    });
     return images;
 }
 

@@ -2,9 +2,37 @@
 
 ## Changelog
 
+### [0.4.0] - 2024-09-XX
+
+- `Pull Request` : Comprehensive UI Refactor and Dependency Updates
+  - Misc refactor for UI
+  - Update Readme ChangeLog
+  - Refactor SidePanel component to use MUI Components and SidePanelContext hook
+  - Refactor Footer component to use MUI Components and add author link
+  - Remove unused code
+  - Refactor ThemeSwitcher to use MUI Button component and ThemeContext hook
+  - Refactor entire project to use MUI Components
+  - Add dependencies for @emotion/react, @emotion/styled, @mui/icons-material, and @mui/material
+  - Refactor CSS files and remove unused styles
+  - Update Readme ChangeLog
+  - Refactor Gdetails to use usePlaceDetails hook, updated Gmap with place marker
+  - Refactor Contact and Home pages, add usePlaceDetails hook
+  - Refactor Gmap.css and Gmap.js, and remove ErrorBoundary.js
+  - Refactor Gmap to use newly added @react-google-maps/api dependency
+  - Update Readme ChangeLog
+  - WIP Refactor Gmap, added useGoogleMapsApi hook
+  - Refactor Header and SidePanel components, Add useIsMobile hook for responsive design
+  - Refactor ThemeSwitcher component and ImportImages utility
+  - Add ServiceSquare component to About page
+  - Split up App.CSS styles per respective components & pages
+  - Update package version to 0.4.0 in package-lock
+
 ### [0.3.0] - 2024-09-12
 
+- Update package version to 0.3.0 in package-lock
 - `Pull Request` : Refactor Allenhurst Cleaners website
+  - Refactor CSS and add Google Maps component
+  - Update Readme to include PR #3's commit message
   - Version Bump & Readme
   - Refactor package dependencies and add image import utility for carousel on home page
   - Refactor About, Contact, and Services pages

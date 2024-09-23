@@ -1,0 +1,73 @@
+.carousel-root {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.carousel .control-arrow {
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  background-color: var(--primary-color); /* Text color */
+  border-radius: 25px; /* Adjust the radius as needed */
+  width: 100px; /* Adjust the width */
+  height: 100%; /* Adjust the height */
+}
+
+.carousel .control-prev.control-arrow {
+  left: 5px; /* Adjust the left position */
+}
+
+.carousel .control-next.control-arrow {
+  right: 5px; /* Adjust the right position */
+}
+
+.carousel .control-arrow:hover {
+  background: rgba(0, 0, 0, 0.8); /* Darker background on hover */
+}
+
+.carousel .control-arrow:before {
+  font-size: 20px; /* Adjust the icon size */
+}
+
+.carousel .carousel-status {
+  display: none; /* Hide the status indicator */
+}
+
+.carousel .carousel-image {
+  width: 100%;
+  max-width: 768px; /* Adjust the max-width as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin: 0 auto; /* Center the image */
+}
+
+@media (max-width: 768px) {
+  .carousel-root {
+    width: 100%;
+  }
+
+  .carousel .control-arrow {
+    width: 50px; /* Adjust the width for mobile */
+    height: 50px; /* Adjust the height for mobile */
+  }
+
+  .carousel .control-prev.control-arrow {
+    left: 2px; /* Adjust the left position for mobile */
+    top: 50%; /* Center vertically */
+    transform: translateY(100%);
+  }
+
+  .carousel .control-next.control-arrow {
+    right: 2px; /* Adjust the right position for mobile */
+    top: 50%; /* Center vertically */
+    transform: translateY(100%);
+  }
+
+  .carousel .control-arrow:before {
+    font-size: 16px; /* Adjust the icon size for mobile */
+  }
+
+  .carousel .carousel-image {
+    max-width: 100%; /* Ensure the image fits within the mobile screen */
+  }
+}

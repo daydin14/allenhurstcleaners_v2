@@ -1,26 +1,39 @@
 // Dependencies
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+
+// MUI Components
+import Button from '@mui/material/Button';
+
+// Context
+import { useThemeContext } from '../contexts/ThemeContext';
 
 const ThemeSwitcher = () => {
-    const [theme, setTheme] = useState('light');
-
-    useEffect(() => {
-        document.documentElement.setAttribute('data-theme', theme);
-    }, [theme]);
-
-    const toggleTheme = () => {
-        setTheme(theme === 'light' ? 'dark' : 'light');
-    };
+    const { themeMode, toggleTheme } = useThemeContext();
 
     return (
         <>
-            <button onClick={toggleTheme}>
-                Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode
-            </button>
-            <label className="switch">
-                <input type="checkbox" checked={theme === 'dark'} onChange={toggleTheme} />
-                <span className="slider round">Toggle</span>
-            </label>
+            <Button
+                variant="contained"
+                onClick={toggleTheme}
+                sx={{
+                    backgroundColor: (theme) =>
+                        theme.palette.mode === 'light'
+                            ? theme.palette.grey[800] // Darker color for light mode
+                            : theme.palette.primary.main, // Original blue for dark mode
+                    color: (theme) =>
+                        theme.palette.mode === 'light'
+                            ? theme.palette.primary.contrastText
+                            : theme.palette.primary.contrastText,
+                    '&:hover': {
+                        backgroundColor: (theme) =>
+                            theme.palette.mode === 'light'
+                                ? theme.palette.grey[900] // Even darker color for hover in light mode
+                                : theme.palette.primary.dark, // Darker blue for hover in dark mode
+                    },
+                }}
+            >
+                {themeMode === 'light' ? 'Light' : 'Dark'} Mode
+            </Button>
         </>
     );
 };

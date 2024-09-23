@@ -1,0 +1,17 @@
+.side-panel {
+  width: 250px;
+  padding-top: 20px;
+  position: relative;
+}
+
+.side-panel-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  right: 0;
+}

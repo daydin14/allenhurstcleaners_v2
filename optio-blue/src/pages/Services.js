@@ -1,83 +1,90 @@
 // Dependencies
 import React from 'react';
 
+// MUI Components
+import { Container, Typography, Paper } from '@mui/material';
+
 const Services = () => {
     return (
         <>
-            <h1>Services</h1>
+            <Container>
+                <Typography variant="h1" gutterBottom>
+                    Services
+                </Typography>
 
-            <article>
-                <p>Dry Cleaning</p>
-                <p>
-                    Dry cleaning is a process that utilizes organic solevents other than
-                    water to clean clothes, bedding, upholstery and other types of
-                    fabrics.
-                </p>
-            </article>
+                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
+                    <Typography variant="h5">Dry Cleaning</Typography>
+                    <Typography>
+                        Dry cleaning is a process that utilizes organic solvents other than
+                        water to clean clothes, bedding, upholstery and other types of
+                        fabrics.
+                    </Typography>
+                </Paper>
 
-            <article>
-                <p>Laundry</p>
-                <p>Laundered clothes and linens. Machine wash and press.</p>
-            </article>
+                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
+                    <Typography variant="h5">Laundry</Typography>
+                    <Typography>Laundered clothes and linens. Machine wash and press.</Typography>
+                </Paper>
 
-            <article>
-                <p>Alterations</p>
-                <p>
-                    Tailored clothes, suited to an individual. Adjusting clothes to fit a
-                    particular person's unique body shape. Fixed rips and reinforced
-                    stitching to almost all materials.
-                </p>
-            </article>
+                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
+                    <Typography variant="h5">Alterations</Typography>
+                    <Typography>
+                        Tailored clothes, suited to an individual. Adjusting clothes to fit a
+                        particular person's unique body shape. Fixed rips and reinforced
+                        stitching to almost all materials.
+                    </Typography>
+                </Paper>
 
-            <article>
-                <p>Pressing</p>
-                <p>
-                    Removes wrinkles by steaming and ironing garmets. Steaming is a
-                    blowing system where as pressing rubbes an iron across.
-                </p>
-            </article>
+                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
+                    <Typography variant="h5">Pressing</Typography>
+                    <Typography>
+                        Removes wrinkles by steaming and ironing garments. Steaming is a
+                        blowing system whereas pressing rubs an iron across.
+                    </Typography>
+                </Paper>
 
-            <article>
-                <p>Leather</p>
-                <p>
-                    Natural or synthetic substance that helps loosen and remove accumlated
-                    dirt and grime on leather based material.
-                </p>
-            </article>
+                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
+                    <Typography variant="h5">Leather</Typography>
+                    <Typography>
+                        Natural or synthetic substance that helps loosen and remove accumulated
+                        dirt and grime on leather-based material.
+                    </Typography>
+                </Paper>
 
-            <article>
-                <p>Fur</p>
-                <p>
-                    Process that adds to the longevity of your fur, makes it soft and
-                    supple, conditions the leather, frees the fur of dust particles that
-                    rob your fur of its sheen.
-                </p>
-            </article>
+                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
+                    <Typography variant="h5">Fur</Typography>
+                    <Typography>
+                        Process that adds to the longevity of your fur, makes it soft and
+                        supple, conditions the leather, frees the fur of dust particles that
+                        rob your fur of its sheen.
+                    </Typography>
+                </Paper>
 
-            <article>
-                <p>Bridal</p>
-                <p>
-                    Wedding dress preservation where a series of special cleaning and
-                    packaging techniques are used to ensure bridal gown styles are
-                    retained over time.
-                </p>
-            </article>
+                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
+                    <Typography variant="h5">Bridal</Typography>
+                    <Typography>
+                        Wedding dress preservation where a series of special cleaning and
+                        packaging techniques are used to ensure bridal gown styles are
+                        retained over time.
+                    </Typography>
+                </Paper>
 
-            <article>
-                <p>Drapes</p>
-                <p>
-                    Drapery and textile for decorative purposes can be dry cleaned and
-                    pressed ot bring out the original color and liven rooms once again.
-                </p>
-            </article>
+                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
+                    <Typography variant="h5">Drapes</Typography>
+                    <Typography>
+                        Drapery and textile for decorative purposes can be dry cleaned and
+                        pressed to bring out the original color and liven rooms once again.
+                    </Typography>
+                </Paper>
 
-            <article>
-                <p>Table & Bedding</p>
-                <p>
-                    Sheets and comforters process in a special cylce that make conforters
-                    look brand new and the sheets crisp and clean.
-                </p>
-            </article>
+                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
+                    <Typography variant="h5">Table & Bedding</Typography>
+                    <Typography>
+                        Sheets and comforters process in a special cycle that make comforters
+                        look brand new and the sheets crisp and clean.
+                    </Typography>
+                </Paper>
+            </Container >
         </>
     );
 };
