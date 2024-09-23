@@ -1,11 +1,9 @@
 // Dependencies
-import React from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 
 // Styles
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import carousel styles
-
-// Hooks
 
 // Components
 import Gmap from '../components/GoogleMaps/Gmap';
@@ -14,6 +12,13 @@ import Gmap from '../components/GoogleMaps/Gmap';
 import images from '../utils/ImportImages';
 
 const Home = () => {
+    const [map, setMap] = useState(null);
+    const mapRef = useRef(null);
+
+    const handleMapLoad = useCallback((mapInstance) => {
+        mapRef.current = mapInstance;
+        setMap(mapInstance);
+    }, []);
 
     return (
         <>
@@ -25,7 +30,7 @@ const Home = () => {
                 ))}
             </Carousel>
             <h1>530 Main Street</h1>
-            <Gmap id="map-home" />
+            <Gmap id="map-home" onLoad={handleMapLoad} />
             <p>Hours of Operation:</p>
             <p>Monday-Friday, 8:00AM - 4:00PM Saturday, 8:00AM - 3:00PM</p>
             <p>
