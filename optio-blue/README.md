@@ -2,7 +2,12 @@
 
 ## Changelog
 
-### [0.4.0] - 2024-09-XX
+### [0.5.0] - 2024-10-XX
+
+- `Pull Request` :
+  - Update Meta Description in `index.html`
+
+### [0.4.0] - 2024-09-23
 
 - `Pull Request` : Comprehensive UI Refactor and Dependency Updates
   - Misc refactor for UI
