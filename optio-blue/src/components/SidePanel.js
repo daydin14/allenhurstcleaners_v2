@@ -1,48 +1,98 @@
-// Dependencies
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-// Hooks
-import useIsMobile from '../hooks/useIsMobile';
+// MUI Components
+import { Drawer, IconButton, List, ListItem, ListItemText } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 
-// Components
+// Hooks
+import { useSidePanel } from '../contexts/SidePanelContext';
 import ThemeSwitcher from './ThemeSwitcher';
 
 const SidePanel = () => {
-    const [isSidePanelOpen, setIsSidePanelOpen] = useState(false);
-
-    const toggleSidePanel = () => {
-        setIsSidePanelOpen(!isSidePanelOpen);
-    };
-
-    const closeSidePanel = () => {
-        setIsSidePanelOpen(false);
-    };
-
-    const isMobile = useIsMobile();
+    const { isSidePanelOpen, closeSidePanel } = useSidePanel();
 
     return (
-        <>
-            <button className="hamburger" onClick={toggleSidePanel}>
-                &#9776;&nbsp;Allenhurst Cleaners
-            </button>
-            <div className={`sidepanel ${isSidePanelOpen ? 'open' : ''}`}>
-                <div className="sidepanel-header">
-                    {!isMobile && <ThemeSwitcher />}
-                    <button className="close-btn" onClick={closeSidePanel}>
-                        &times;
-                    </button>
+        <Drawer anchor="left" open={isSidePanelOpen} onClose={closeSidePanel}>
+            <div className="side-panel">
+                <div className="side-panel-header">
+                    <ThemeSwitcher /> &emsp;
+                    <IconButton onClick={closeSidePanel} className="close-button">
+                        <CloseIcon />
+                    </IconButton>
                 </div>
-                <nav>
-                    <ul>
-                        <li><Link to="/" onClick={closeSidePanel}>Home</Link></li>
-                        <li><Link to="/about" onClick={closeSidePanel}>About</Link></li>
-                        <li><Link to="/services" onClick={closeSidePanel}>Services</Link></li>
-                        <li><Link to="/contact" onClick={closeSidePanel}>Contact</Link></li>
-                    </ul>
-                </nav>
+                <List>
+                    <ListItem
+                        button
+                        component={Link}
+                        to="/"
+                        onClick={closeSidePanel}
+                        sx={{
+                            color: 'text.primary',
+                            '&:hover': {
+                                backgroundColor: (theme) =>
+                                    theme.palette.mode === 'light'
+                                        ? theme.palette.grey[300]
+                                        : theme.palette.grey[700],
+                            },
+                        }}
+                    >
+                        <ListItemText primary="Home" />
+                    </ListItem>
+                    <ListItem
+                        button
+                        component={Link}
+                        to="/about"
+                        onClick={closeSidePanel}
+                        sx={{
+                            color: 'text.primary',
+                            '&:hover': {
+                                backgroundColor: (theme) =>
+                                    theme.palette.mode === 'light'
+                                        ? theme.palette.grey[300]
+                                        : theme.palette.grey[700],
+                            },
+                        }}
+                    >
+                        <ListItemText primary="About" />
+                    </ListItem>
+                    <ListItem
+                        button
+                        component={Link}
+                        to="/services"
+                        onClick={closeSidePanel}
+                        sx={{
+                            color: 'text.primary',
+                            '&:hover': {
+                                backgroundColor: (theme) =>
+                                    theme.palette.mode === 'light'
+                                        ? theme.palette.grey[300]
+                                        : theme.palette.grey[700],
+                            },
+                        }}
+                    >
+                        <ListItemText primary="Services" />
+                    </ListItem>
+                    <ListItem
+                        button
+                        component={Link}
+                        to="/contact"
+                        onClick={closeSidePanel}
+                        sx={{
+                            color: 'text.primary',
+                            '&:hover': {
+                                backgroundColor: (theme) =>
+                                    theme.palette.mode === 'light'
+                                        ? theme.palette.grey[300]
+                                        : theme.palette.grey[700],
+                            },
+                        }}
+                    >
+                        <ListItemText primary="Contact" />
+                    </ListItem>
+                </List>
             </div>
-        </>
+        </Drawer>
     );
 };
 
