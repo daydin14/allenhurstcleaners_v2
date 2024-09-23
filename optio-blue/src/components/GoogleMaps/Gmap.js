@@ -3,6 +3,9 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 
+// MUI Components
+import { Box, CircularProgress, Typography } from '@mui/material';
+
 // Hooks
 import usePlaceDetails from '../../hooks/usePlaceDetails';
 
@@ -43,7 +46,7 @@ const Gmap = ({ id, onLoad }) => {
     });
 
     // Use the custom hook to get place details
-    const { place, status, error } = usePlaceDetails(mapRef.current, process.env.REACT_APP_GOOGLE_MAPS_PLACE_ID); // Replace 'PLACE_ID' with the actual place ID
+    const { place } = usePlaceDetails(mapRef.current, process.env.REACT_APP_GOOGLE_MAPS_PLACE_ID); // Replace 'PLACE_ID' with the actual place ID
 
     // Load the map
     const handleMapLoad = useCallback((map) => {
@@ -154,11 +157,11 @@ const Gmap = ({ id, onLoad }) => {
     }, [isLoaded, mapLoaded]);
 
     if (loadError) {
-        return <div>Error loading Google Maps API</div>;
+        return <Typography color="error">Error loading Google Maps API</Typography>;
     }
 
     return isLoaded ? (
-        <>
+        <Box position="relative">
             <GoogleMap
                 mapContainerStyle={containerStyle}
                 center={center}
@@ -166,11 +169,12 @@ const Gmap = ({ id, onLoad }) => {
                 onLoad={handleMapLoad}
                 onUnmount={onUnmount}
                 mapId={mapId}
-            >
-            </GoogleMap>
-        </>
+            />
+        </Box>
     ) : (
-        <div>Loading...</div>
+        <Box display="flex" justifyContent="center" alignItems="center" height="400px">
+            <CircularProgress />
+        </Box>
     );
 };
 

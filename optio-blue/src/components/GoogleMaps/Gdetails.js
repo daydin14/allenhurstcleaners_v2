@@ -1,6 +1,9 @@
 // Dependencies
 import React from 'react';
 
+// MUI Components
+import { CircularProgress, Typography, Link, Box } from '@mui/material';
+
 // Hooks
 import usePlaceDetails from '../../hooks/usePlaceDetails';
 
@@ -11,22 +14,22 @@ const Gdetails = ({ map, placeId }) => {
     const { place, status, error } = usePlaceDetails(map, placeId);
 
     if (status !== window.google.maps.places.PlacesServiceStatus.OK) {
-        return <div>Loading place details...</div>;
+        return <Box display="flex" justifyContent="center" alignItems="center" height="100%"><CircularProgress /></Box>;
     }
 
     if (error) {
-        return <div>Error loading place details: {error}</div>;
+        return <Typography color="error">Error loading place details: {error}</Typography>;
     }
 
     return (
-        <div className='gdetails'>
-            <p>Address: <Glink location="Allenhurst Cleaners" /></p>
-            <h4>{place.name}</h4>
-            <p>Address: <Glink location={place.formatted_address} /></p>
-            <p>Rating: {place.rating}</p>
-            <p>Phone: <a href={`tel:${place.formatted_phone_number}`}>{place.formatted_phone_number}</a></p>
-            <p>Email: <a href="mailto:allenhurstcleaners@gmail.com">allenhurstcleaners@gmail.com</a></p>
-        </div>
+        <Box className='gdetails' p={2} border={1} borderColor="grey.300" borderRadius={2}>
+            <Typography variant="h6">Address: <Glink location="Allenhurst Cleaners" /></Typography>
+            <Typography variant="h4">{place.name}</Typography>
+            <Typography variant="body1">Address: <Glink location={place.formatted_address} /></Typography>
+            <Typography variant="body1">Rating: {place.rating}</Typography>
+            <Typography variant="body1">Phone: <Link href={`tel:${place.formatted_phone_number}`}>{place.formatted_phone_number}</Link></Typography>
+            <Typography variant="body1">Email: <Link href="mailto:allenhurstcleaners@gmail.com">allenhurstcleaners@gmail.com</Link></Typography>
+        </Box>
     );
 };
 

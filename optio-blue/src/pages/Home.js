@@ -1,9 +1,12 @@
 // Dependencies
 import React, { useState, useRef, useCallback } from 'react';
-import { Carousel } from 'react-responsive-carousel';
 
-// Styles
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import carousel styles
+// MUI Components
+import { Container, Typography, Box, Paper } from '@mui/material';
+
+// Carousel Styles and Component
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from 'react-responsive-carousel';
 
 // Components
 import Gmap from '../components/GoogleMaps/Gmap';
@@ -22,26 +25,44 @@ const Home = () => {
 
     return (
         <>
-            <Carousel showThumbs={false} emulateTouch={true} autoPlay infiniteLoop>
-                {Object.keys(images).map((key, index) => (
-                    <div key={index}>
-                        <img className='carousel-image' src={images[key]} alt={`Slide ${index + 1}`} />
-                    </div>
-                ))}
-            </Carousel>
-            <h1>530 Main Street</h1>
-            <Gmap id="map-home" onLoad={handleMapLoad} />
-            <p>Hours of Operation:</p>
-            <p>Monday-Friday, 8:00AM - 4:00PM Saturday, 8:00AM - 3:00PM</p>
-            <p>
-                Only accepting alterations Monday-Saturday, 10:00AM - 3:00PM
-                <br />
-                <small>
-                    <i>Subject to change dependent on the four seasons</i>
-                </small>
-            </p>
-            <p>Minimum $10 credit/debit card purchase</p>
-            <p>Acceptable payments include: Amex, Apple Pay, Cash, Checks, Credit and Debit Cards</p>
+            <Container>
+                <Box my={4}>
+                    <Carousel showThumbs={false} emulateTouch={true} autoPlay infiniteLoop>
+                        {Object.keys(images).map((key, index) => (
+                            <div key={index}>
+                                <img className='carousel-image' src={images[key]} alt={`Slide ${index + 1}`} />
+                            </div>
+                        ))}
+                    </Carousel>
+                </Box>
+                <Typography variant="h4" component="h1" gutterBottom>
+                    530 Main Street
+                </Typography>
+                <Box my={2}>
+                    <Gmap id="map-home" onLoad={handleMapLoad} />
+                </Box>
+                <Paper elevation={3} sx={{ padding: 2 }}>
+                    <Typography variant="h6" component="p">
+                        Hours of Operation:
+                    </Typography>
+                    <Typography variant="body1" component="p">
+                        Monday-Friday, 8:00AM - 4:00PM Saturday, 8:00AM - 3:00PM
+                    </Typography>
+                    <Typography variant="body1" component="p">
+                        Only accepting alterations Monday-Saturday, 10:00AM - 3:00PM
+                        <br />
+                        <small>
+                            <i>Subject to change dependent on the four seasons</i>
+                        </small>
+                    </Typography>
+                    <Typography variant="body1" component="p">
+                        Minimum $10 credit/debit card purchase
+                    </Typography>
+                    <Typography variant="body1" component="p">
+                        Acceptable payments include: Amex, Apple Pay, Cash, Checks, Credit and Debit Cards
+                    </Typography>
+                </Paper>
+            </Container>
         </>
     );
 };

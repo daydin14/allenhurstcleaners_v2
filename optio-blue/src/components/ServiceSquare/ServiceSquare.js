@@ -1,11 +1,14 @@
 // Dependencies
 import React from 'react';
 
+// MUI Components
+import { Box, Typography } from '@mui/material';
+
 const ServiceSquare = ({ title }) => {
     return (
-        <div className="service-square">
-            <h4>{title}</h4>
-        </div>
+        <Box className="service-square" sx={{ padding: 2, border: '1px solid', borderRadius: 1 }}>
+            <Typography variant="h4">{title}</Typography>
+        </Box>
     );
 };
 
