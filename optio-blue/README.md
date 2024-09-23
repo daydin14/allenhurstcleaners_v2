@@ -5,6 +5,13 @@
 ### [0.4.0] - 2024-09-XX
 
 - `Pull Request` : Allenhurst Cleaners website v2 initial live deploy
+  - Update Readme ChangeLog
+  - Refactor SidePanel component to use MUI Components and SidePanelContext hook
+  - Refactor Footer component to use MUI Components and add author link
+  - Remove unused code
+  - Refactor ThemeSwitcher to use MUI Button component and ThemeContext hook
+  - Refactor entire project to use MUI Components
+  - Add dependencies for @emotion/react, @emotion/styled, @mui/icons-material, and @mui/material
   - Refactor CSS files and remove unused styles
   - Update Readme ChangeLog
   - Refactor Gdetails to use usePlaceDetails hook, updated Gmap with place marker
