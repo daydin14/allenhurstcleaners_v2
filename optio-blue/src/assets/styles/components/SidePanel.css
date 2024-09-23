@@ -1,64 +1,17 @@
-.hamburger {
-  font-size: 24px;
-  background: none;
-  border: none;
-  color: var(--text-color);
-  cursor: pointer;
-  background-color: var(--primary-color);
-}
-
-.sidepanel {
-  position: fixed;
-  top: 0;
-  left: -250px;
+.side-panel {
   width: 250px;
-  height: 100%;
-  background-color: var(--primary-color);
-  overflow-x: hidden;
-  transition: 0.3s;
-  padding-top: 60px;
-  z-index: 1000;
+  padding-top: 20px;
+  position: relative;
 }
 
-.sidepanel.open {
-  left: 0;
-}
-
-.close-btn {
-  font-size: 24px;
-  background: none;
-  border: none;
-  color: var(--text-color);
-  cursor: pointer;
-  margin-left: auto;
-}
-
-.sidepanel-header {
-  position: absolute;
-  top: 10px;
-  right: 20px;
+.side-panel-header {
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  padding: 15px;
+  position: relative;
 }
 
-.sidepanel ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.sidepanel ul li {
-  padding: 8px 16px;
-  text-align: left;
-}
-
-.sidepanel ul li a {
-  color: var(--text-color);
-  text-decoration: none;
-  display: block;
-}
-
-.sidepanel ul li a:hover {
-  background-color: #575757;
+.close-button {
+  position: absolute;
+  right: 0;
 }

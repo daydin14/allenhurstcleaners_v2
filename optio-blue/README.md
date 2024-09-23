@@ -5,6 +5,7 @@
 ### [0.4.0] - 2024-09-XX
 
 - `Pull Request` : Allenhurst Cleaners website v2 initial live deploy
+  - Refactor CSS files and remove unused styles
   - Update Readme ChangeLog
   - Refactor Gdetails to use usePlaceDetails hook, updated Gmap with place marker
   - Refactor Contact and Home pages, add usePlaceDetails hook

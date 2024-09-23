@@ -1,42 +1,4 @@
-:root {
-  /* Light Mode Colors */
-  --primary-color: #218838; /* Toned-down Green */
-  --secondary-color: #ffffff; /* White */
-  --background-color: #ffffff; /* Light mode background */
-  --accent-color: #d4edda; /* Light Green */
-  --text-color: #155724; /* Dark Green */
-}
-
-[data-theme="dark"] {
-  /* Dark Mode Colors */
-  --primary-color: #155724; /* Dark Green */
-  --secondary-color: #d4edda; /* Light Green */
-  --background-color: #1b1d24; /* Dark mode background */
-  --accent-color: #365a08; /* Darker Green */
-  --text-color: #ffffff; /* Light text for dark mode */
-}
-
-.App {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: var(--background-color);
-  color: var(--text-color);
-}
-
 /* Component Styles */
-@import "./components/Header.css";
 @import "./components/SidePanel.css";
-@import "./components/SideBar.css";
-@import "./components/Footer.css";
-@import "./components/ThemeSwitcher.css";
-@import "./components/GoogleMaps/Gmap.css";
-@import "./components/GoogleMaps/Gdetails.css";
-@import "./components/ServiceSquare.css";
 
 /* Page Styles */
-@import "./pages/Main.css";
-@import "./pages/Home.css";
-@import "./pages/Services.css";
-@import "./pages/About.css";
-@import "./pages/Contact.css";
