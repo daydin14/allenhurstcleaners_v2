@@ -2,7 +2,7 @@
 import React, { useState, useRef, useCallback } from 'react';
 
 // MUI Components
-import { Container, Typography, Box, Paper } from '@mui/material';
+import { Container, Paper, Typography, Box } from '@mui/material';
 
 // Carousel Styles and Component
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -35,12 +35,17 @@ const Home = () => {
                         ))}
                     </Carousel>
                 </Box>
-                <Typography variant="h4" component="h1" gutterBottom>
-                    530 Main Street
-                </Typography>
+
+                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
+                    <Typography variant="h4" component="h1" gutterBottom>
+                        530 Main Street
+                    </Typography>
+                </Paper>
+
                 <Box my={2}>
                     <Gmap id="map-home" onLoad={handleMapLoad} />
                 </Box>
+
                 <Paper elevation={3} sx={{ padding: 2 }}>
                     <Typography variant="h6" component="p">
                         Hours of Operation:

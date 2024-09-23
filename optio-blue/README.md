@@ -4,7 +4,8 @@
 
 ### [0.4.0] - 2024-09-XX
 
-- `Pull Request` : Allenhurst Cleaners website v2 initial live deploy
+- `Pull Request` : Comprehensive UI Refactor and Dependency Updates
+  - Misc refactor for UI
   - Update Readme ChangeLog
   - Refactor SidePanel component to use MUI Components and SidePanelContext hook
   - Refactor Footer component to use MUI Components and add author link

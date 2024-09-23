@@ -2,7 +2,7 @@
 import React from 'react';
 
 // MUI Components
-import { Container, Typography, Grid, Box } from '@mui/material';
+import { Container, Paper, Typography, Grid, Box } from '@mui/material';
 
 // Components
 import ServiceSquare from '../components/ServiceSquare/ServiceSquare';
@@ -15,9 +15,11 @@ const About = () => {
                     About Us!
                 </Typography>
 
-                <Typography variant="h4" gutterBottom>
-                    Who We Are:
-                </Typography>
+                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
+                    <Typography variant="h4" gutterBottom>
+                        Who We Are:
+                    </Typography>
+                </Paper>
                 <Typography paragraph>
                     Located in Allenhurst NJ, Allenhurst Dry Cleaners is a store front for
                     more than basic dry cleaning. Throughout the 40+ years of operation,
@@ -26,23 +28,23 @@ const About = () => {
                     liven old and new fabrics, textiles, and clothing.
                 </Typography>
 
-                <Typography variant="h4" gutterBottom>
-                    What We Do:
-                </Typography>
+                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
+                    <Typography variant="h4" gutterBottom>
+                        What We Do:
+                    </Typography>
+                </Paper>
                 <Typography paragraph>
                     We offer laundry services for men's button down shirts only;
                     outsourced with a typical turn around rate to be two-three days. These
                     men shirts are machine washed and machine pressed, which differs from
                     dry cleaning using our organic solvent followed by hand pressing.
                 </Typography>
-
                 <Typography paragraph>
                     In addition, we provide tailoring services altering a wide range of
                     clothes and textile materials. Some alterations include hemming,
                     letting out or lengthening, side seams, sleeves, tapering, waist,
                     cuffs or removal of cuffs, bra cups and more.
                 </Typography>
-
                 <Typography paragraph>
                     Every order is packaged in travel safe blue plastic wrap to protect
                     the clothes from the weather when leaving the store as well as dust
@@ -50,16 +52,17 @@ const About = () => {
                     pressing of clothes in good condition for traveling. If you're looking
                     to clear clutter in your closet, we do recycle hangers as well.
                 </Typography>
-
                 <Typography paragraph>
                     Ask in store about our Leather, Fur, and Bridal services for the most
                     up to date details on cleaning them, and what the turn around rate may
                     look like.
                 </Typography>
 
-                <Typography variant="h4" gutterBottom>
-                    What Can We Provide:
-                </Typography>
+                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
+                    <Typography variant="h4" gutterBottom>
+                        What Can We Provide:
+                    </Typography>
+                </Paper>
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={6} md={4}>

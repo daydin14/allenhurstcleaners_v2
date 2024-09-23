@@ -23,7 +23,6 @@ const Gdetails = ({ map, placeId }) => {
 
     return (
         <Box className='gdetails' p={2} border={1} borderColor="grey.300" borderRadius={2}>
-            <Typography variant="h6">Address: <Glink location="Allenhurst Cleaners" /></Typography>
             <Typography variant="h4">{place.name}</Typography>
             <Typography variant="body1">Address: <Glink location={place.formatted_address} /></Typography>
             <Typography variant="body1">Rating: {place.rating}</Typography>
