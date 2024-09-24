@@ -50,63 +50,46 @@ const About = () => {
     return (
         <>
             <Container>
-                <Typography variant="h1" gutterBottom>
-                    About Us!
-                </Typography>
-
                 {/* Who We Are Section */}
                 <>
                     <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
-                        <Typography variant="h4" gutterBottom>
+                        <Typography variant="h4" gutterBottom align='center'>
                             Who We Are:
                         </Typography>
                     </Paper>
-                    <Typography paragraph>
-                        Located in Allenhurst NJ, Allenhurst Dry Cleaners is a store front for
-                        more than basic dry cleaning. Throughout the 40+ years of operation,
-                        we have grown and developed into a multi-service production plant.
-                        Today, we use all organic solvents and provide a deep cleaning to
-                        liven old and new fabrics, textiles, and clothing.
+                    <Typography variant="body1" sx={{ marginBottom: 2 }}>
+                        Located in the heart of Allenhurst, NJ, Allenhurst Dry Cleaners has been a cornerstone of the community for over 40 years. What began as a simple storefront for basic dry cleaning has evolved into a comprehensive multi-service production plant. Our commitment to excellence is reflected in our use of all organic solvents, ensuring a deep and thorough cleaning that revitalizes both old and new fabrics, textiles, and clothing. We pride ourselves on our rich history and our dedication to providing top-notch services to our valued customers.
                     </Typography>
                 </>
 
                 {/* What We Do: Section */}
                 <>
                     <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
-                        <Typography variant="h4" gutterBottom>
+                        <Typography variant="h4" gutterBottom align='center'>
                             What We Do:
                         </Typography>
                     </Paper>
-                    <Typography paragraph>
-                        We offer laundry services for men's button down shirts only;
-                        outsourced with a typical turn around rate to be two-three days. These
-                        men shirts are machine washed and machine pressed, which differs from
-                        dry cleaning using our organic solvent followed by hand pressing.
+                    <Typography variant="body1" sx={{ marginBottom: 2 }}>
+                        At Allenhurst Dry Cleaners, we specialize in a variety of services tailored to meet your needs:
                     </Typography>
-                    <Typography paragraph>
-                        In addition, we provide tailoring services altering a wide range of
-                        clothes and textile materials. Some alterations include hemming,
-                        letting out or lengthening, side seams, sleeves, tapering, waist,
-                        cuffs or removal of cuffs, bra cups and more.
+                    <Typography variant="body1" sx={{ marginBottom: 2 }}>
+                        Laundry Services for Men’s Button-Down Shirts: We offer specialized laundry services exclusively for men’s button-down shirts. Each shirt is machine washed using high-quality detergents that effectively remove stains and odors while preserving the fabric’s integrity. After washing, the shirts are machine pressed to achieve a crisp and polished appearance. Our typical turnaround time for this service is two to three days, ensuring your shirts are ready when you need them.
                     </Typography>
-                    <Typography paragraph>
-                        Every order is packaged in travel safe blue plastic wrap to protect
-                        the clothes from the weather when leaving the store as well as dust
-                        build ups and potential moths in closets. The bags also keep the
-                        pressing of clothes in good condition for traveling. If you're looking
-                        to clear clutter in your closet, we do recycle hangers as well.
+                    <Typography variant="body1" sx={{ marginBottom: 2 }}>
+                        Tailoring Services: Our expert tailoring services cater to a wide range of clothing and textile materials. Whether you need hemming, letting out or lengthening, adjusting side seams, sleeves, tapering, waist adjustments, cuffs or removal of cuffs, or even adding bra cups, our skilled tailors can handle it all. We ensure that your garments fit perfectly and look their best.
                     </Typography>
-                    <Typography paragraph>
-                        Ask in store about our Leather, Fur, and Bridal services for the most
-                        up to date details on cleaning them, and what the turn around rate may
-                        look like.
+                    <Typography variant="body1" sx={{ marginBottom: 2 }}>
+                        Packaging and Protection: Every order is meticulously packaged in travel-safe blue plastic wrap to protect your clothes from the elements when leaving the store. This packaging also guards against dust buildup and potential moth damage in closets, keeping your garments in pristine condition. Additionally, the bags help maintain the pressing of clothes during travel. For those looking to declutter, we offer hanger recycling services as well.
+                    </Typography>
+                    <Typography variant="body1" sx={{ marginBottom: 2 }}>
+                        Specialty Services: We also provide specialized cleaning services for leather, fur, and bridal garments. Our leather cleaning process uses natural or synthetic substances to remove dirt and grime, while our fur cleaning service conditions the leather and frees the fur of dust particles, enhancing its longevity and sheen. Our bridal gown preservation service employs special cleaning and packaging techniques to ensure your wedding dress remains a cherished keepsake. For the most up-to-date details on these services and their turnaround times, please inquire in-store.
                     </Typography>
                 </>
 
                 {/* What Can We Provide: Section */}
                 <>
                     <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
-                        <Typography variant="h4" gutterBottom>
+                        <Typography variant="h4" gutterBottom align='center'>
                             What Can We Provide:
                         </Typography>
                     </Paper>

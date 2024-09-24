@@ -40,7 +40,7 @@ const Home = () => {
 
                 {/* Address Branding */}
                 <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
-                    <Typography variant="h4" component="h1" gutterBottom sx={{ textAlign: 'center' }}>
+                    <Typography variant="h4" component="h1" gutterBottom sx={{ textAlign: 'center', textDecoration: 'underline' }}>
                         530 Main Street
                     </Typography>
                 </Paper>
@@ -52,25 +52,35 @@ const Home = () => {
 
                 {/* Quick Info */}
                 <Paper elevation={3} sx={{ padding: 2 }}>
-                    <Typography variant="h6" component="p">
+                    <Typography variant="h6" component="p" gutterBottom>
                         Hours of Operation:
                     </Typography>
-                    <Typography variant="body1" component="p">
-                        Monday-Friday, 8:00AM - 4:00PM Saturday, 8:00AM - 3:00PM
+                    <Typography variant="body1" component="p" gutterBottom>
+                        Monday-Friday: 8:00AM - 4:00PM
+                        <br />
+                        Saturday: 8:00AM - 3:00PM
                     </Typography>
-                    <Typography variant="body1" component="p">
-                        Only accepting alterations Monday-Saturday, 10:00AM - 3:00PM
+                    <br />
+                    <Typography variant="body1" component="p" gutterBottom>
+                        Alterations: Monday-Saturday, 10:00AM - 3:00PM
                         <br />
                         <small>
-                            <i>Subject to change dependent on the four seasons</i>
+                            <i>Subject to seasonal changes</i>
                         </small>
                     </Typography>
-                    <Typography variant="body1" component="p">
-                        Minimum $10 credit/debit card purchase
+                    <br />
+                    <Typography variant="body1" component="p" gutterBottom>
+                        Minimum $10 for card purchases
+                        <br />
+                        We accept:
                     </Typography>
-                    <Typography variant="body1" component="p">
-                        Acceptable payments include: Amex, Apple Pay, Cash, Checks, Credit and Debit Cards
-                    </Typography>
+                    <ul>
+                        <li>Amex</li>
+                        <li>Apple Pay</li>
+                        <li>Cash</li>
+                        <li>Checks</li>
+                        <li>Credit and Debit Cards</li>
+                    </ul>
                 </Paper>
             </Container>
         </>
