@@ -5,6 +5,7 @@
 ### [0.5.0] - 2024-10-XX
 
 - `Pull Request` :
+  - Removed excess logging
   - Refactor App.css to remove unused CSS files
   - Refactor Gdetails component to improve rendering of opening hours
   - Refactor About and Home pages UI layout and content

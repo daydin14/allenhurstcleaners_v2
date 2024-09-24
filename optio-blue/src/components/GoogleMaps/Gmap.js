@@ -76,7 +76,7 @@ const Gmap = ({ id, onLoad }) => {
                         });
                         console.log('AdvancedMarker added:', marker);
                     } else {
-                        console.error('AdvancedMarkerElement is not available');
+                        console.warn('AdvancedMarkerElement is not available');
                         const marker = new window.google.maps.Marker({
                             position: center,
                             map: mapRef.current,

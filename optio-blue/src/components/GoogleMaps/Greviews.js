@@ -20,10 +20,6 @@ const Greviews = ({ map, placeId }) => {
         return <Typography color="error">Error loading place details: {error}</Typography>;
     }
 
-    // Debugging information
-    console.log('Place:', place);
-    console.log('Number of reviews:', place.reviews ? place.reviews.length : 0);
-
     return (
         <>
             {place.rating && (
@@ -78,10 +74,6 @@ export default Greviews;
         if (error) {
             return <Typography color="error">Error loading place details: {error}</Typography>;
         }
-
-        // Debugging information
-        console.log('Place:', place);
-        console.log('Number of reviews:', place.reviews ? place.reviews.length : 0);
 
         return (
             <>
