@@ -20,23 +20,20 @@ const Contact = () => {
     return (
         <>
             <Container>
-                <Typography variant="h1" gutterBottom>
-                    Contact Us
-                </Typography>
-                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
+                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2, textAlign: 'center' }}>
                     <Typography variant="h4" mt={4}>
-                        Leave us a Google Review!
+                        Contact Us!
                     </Typography>
                 </Paper>
-                <Box id="map-contact">
-                    <Gmap onLoad={handleMapLoad} />
-                </Box>
                 <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
                     {map && (
                         <Box mt={2}>
                             <Gdetails map={map} placeId={process.env.REACT_APP_GOOGLE_MAPS_PLACE_ID} />
                         </Box>
                     )}
+                    <Box id="map-contact">
+                        <Gmap onLoad={handleMapLoad} />
+                    </Box>
                 </Paper>
             </Container>
         </>

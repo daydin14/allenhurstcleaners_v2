@@ -46,7 +46,7 @@ const Gmap = ({ id, onLoad }) => {
     });
 
     // Use the custom hook to get place details
-    const { place } = usePlaceDetails(mapRef.current, process.env.REACT_APP_GOOGLE_MAPS_PLACE_ID); // Replace 'PLACE_ID' with the actual place ID
+    const { place } = usePlaceDetails(mapRef.current, process.env.REACT_APP_GOOGLE_MAPS_PLACE_ID);
 
     // Load the map
     const handleMapLoad = useCallback((map) => {

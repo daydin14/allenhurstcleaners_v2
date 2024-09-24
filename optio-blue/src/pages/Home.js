@@ -26,6 +26,8 @@ const Home = () => {
     return (
         <>
             <Container>
+
+                {/* Carousel of Store Images */}
                 <Box my={4}>
                     <Carousel showThumbs={false} emulateTouch={true} autoPlay infiniteLoop>
                         {Object.keys(images).map((key, index) => (
@@ -36,16 +38,19 @@ const Home = () => {
                     </Carousel>
                 </Box>
 
+                {/* Address Branding */}
                 <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
-                    <Typography variant="h4" component="h1" gutterBottom>
+                    <Typography variant="h4" component="h1" gutterBottom sx={{ textAlign: 'center' }}>
                         530 Main Street
                     </Typography>
                 </Paper>
 
+                {/* Google Map Component */}
                 <Box my={2}>
                     <Gmap id="map-home" onLoad={handleMapLoad} />
                 </Box>
 
+                {/* Quick Info */}
                 <Paper elevation={3} sx={{ padding: 2 }}>
                     <Typography variant="h6" component="p">
                         Hours of Operation:
