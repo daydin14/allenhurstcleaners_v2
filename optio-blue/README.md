@@ -5,8 +5,9 @@
 ### [0.5.0] - 2024-10-XX
 
 - `Pull Request` :
+  - Refactor ThemeSwitcher button text to toggle between light and dark mode
   - Version Bump
-  - Update Meta Description in `index.html`
+- Update Meta Description in `index.html`
 
 ### [0.4.0] - 2024-09-23
 

@@ -32,7 +32,7 @@ const ThemeSwitcher = () => {
                     },
                 }}
             >
-                {themeMode === 'light' ? 'Light' : 'Dark'} Mode
+                {themeMode === 'light' ? 'Dark' : 'Light'} Mode
             </Button>
         </>
     );
