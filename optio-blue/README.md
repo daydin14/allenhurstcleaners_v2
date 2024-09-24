@@ -5,6 +5,7 @@
 ### [0.5.0] - 2024-10-XX
 
 - `Pull Request` :
+  - Version Bump
   - Update Meta Description in `index.html`
 
 ### [0.4.0] - 2024-09-23
