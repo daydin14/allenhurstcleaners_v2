@@ -5,6 +5,7 @@
 ### [0.5.0] - 2024-10-XX
 
 - `Pull Request` :
+  - Refactor ServiceSquare component to update hover effect
   - Added Reviews page and Greviews component
   - Refactor GoogleMaps components and update UI layout
   - Refactor ServiceSquare component, Services and About pages

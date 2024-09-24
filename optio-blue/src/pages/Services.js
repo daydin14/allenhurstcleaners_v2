@@ -47,9 +47,11 @@ const Services = () => {
     return (
         <>
             <Container>
-                <Typography variant="h1" gutterBottom>
-                    Services
-                </Typography>
+                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2, textAlign: 'center' }}>
+                    <Typography variant="h4" mt={4}>
+                        Services
+                    </Typography>
+                </Paper>
 
                 {serviceDetails.map((service, index) => (
                     <Paper key={index} elevation={3} sx={{ padding: 2, marginBottom: 2 }}>

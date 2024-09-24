@@ -26,7 +26,7 @@ const ServiceSquare = ({ title, description }) => {
                 transition: 'all 0.3s ease',
                 minHeight: '200px', // Set a minimum height
                 '&:hover': {
-                    boxShadow: 3,
+                    boxShadow: '0px 4px 20px rgba(0, 0, 0, 1)',
                 },
             }}
             onClick={handleToggle}
