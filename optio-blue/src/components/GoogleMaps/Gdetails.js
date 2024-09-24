@@ -51,16 +51,14 @@ const Gdetails = ({ map, placeId }) => {
                 <Typography variant="body1">Phone: <Link href={`tel:${place.formatted_phone_number}`}>{place.formatted_phone_number}</Link></Typography>
                 <Typography variant="body1">Email: <Link href="mailto:allenhurstcleaners@gmail.com">allenhurstcleaners@gmail.com</Link></Typography>
                 <br />
-                {place.opening_hours && (
-                    <Typography variant="body1">
-                        Hours of Operation:
-                        <ul>
-                            {place.opening_hours.weekday_text.map((day, index) => (
-                                <li key={index}>{day}</li>
-                            ))}
-                        </ul>
-                    </Typography>
-                )}
+                <Typography variant="body1" gutterBottom>
+                    Hours of Operation:
+                </Typography>
+                <ul>
+                    {place.opening_hours.weekday_text.map((day, index) => (
+                        <li key={index}>{day}</li>
+                    ))}
+                </ul>
             </Box>
         </Box>
     );
