@@ -76,6 +76,23 @@ const SidePanel = () => {
                     <ListItem
                         button
                         component={Link}
+                        to="/reviews"
+                        onClick={closeSidePanel}
+                        sx={{
+                            color: 'text.primary',
+                            '&:hover': {
+                                backgroundColor: (theme) =>
+                                    theme.palette.mode === 'light'
+                                        ? theme.palette.grey[300]
+                                        : theme.palette.grey[700],
+                            },
+                        }}
+                    >
+                        <ListItemText primary="Reviews" />
+                    </ListItem>
+                    <ListItem
+                        button
+                        component={Link}
                         to="/contact"
                         onClick={closeSidePanel}
                         sx={{

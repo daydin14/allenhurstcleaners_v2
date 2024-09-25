@@ -46,7 +46,7 @@ const Gmap = ({ id, onLoad }) => {
     });
 
     // Use the custom hook to get place details
-    const { place } = usePlaceDetails(mapRef.current, process.env.REACT_APP_GOOGLE_MAPS_PLACE_ID); // Replace 'PLACE_ID' with the actual place ID
+    const { place } = usePlaceDetails(mapRef.current, process.env.REACT_APP_GOOGLE_MAPS_PLACE_ID);
 
     // Load the map
     const handleMapLoad = useCallback((map) => {
@@ -76,7 +76,7 @@ const Gmap = ({ id, onLoad }) => {
                         });
                         console.log('AdvancedMarker added:', marker);
                     } else {
-                        console.error('AdvancedMarkerElement is not available');
+                        console.warn('AdvancedMarkerElement is not available');
                         const marker = new window.google.maps.Marker({
                             position: center,
                             map: mapRef.current,

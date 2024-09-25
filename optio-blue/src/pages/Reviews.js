@@ -2,13 +2,13 @@
 import React, { useState, useRef, useCallback } from 'react';
 
 // MUI Components
-import { Container, Paper, Typography, Box } from '@mui/material';
+import { Typography, Box, Container, Paper } from '@mui/material'
 
 // Components
 import Gmap from '../components/GoogleMaps/Gmap';
-import Gdetails from '../components/GoogleMaps/Gdetails';
+import Greviews from '../components/GoogleMaps/Greviews'
 
-const Contact = () => {
+const Reviews = () => {
     const [map, setMap] = useState(null);
     const mapRef = useRef(null);
 
@@ -22,22 +22,22 @@ const Contact = () => {
             <Container>
                 <Paper elevation={3} sx={{ padding: 2, marginBottom: 2, textAlign: 'center' }}>
                     <Typography variant="h4" mt={4}>
-                        Contact Us!
+                        Recent Reviews
                     </Typography>
                 </Paper>
                 <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
                     {map && (
                         <Box mt={2}>
-                            <Gdetails map={map} placeId={process.env.REACT_APP_GOOGLE_MAPS_PLACE_ID} />
+                            <Greviews map={map} placeId={process.env.REACT_APP_GOOGLE_MAPS_PLACE_ID} />
                         </Box>
                     )}
-                    <Box id="map-contact">
+                    <Box id="map-review" display={'none'}>
                         <Gmap onLoad={handleMapLoad} />
                     </Box>
                 </Paper>
             </Container>
         </>
     );
-};
+}
 
-export default Contact;
+export default Reviews

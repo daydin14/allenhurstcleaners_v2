@@ -4,86 +4,62 @@ import React from 'react';
 // MUI Components
 import { Container, Typography, Paper } from '@mui/material';
 
+const serviceDetails = [
+    {
+        title: 'Dry Cleaning',
+        description: 'Dry cleaning is a process that utilizes organic solvents other than water to clean clothes, bedding, upholstery, and other types of fabrics. This method is particularly effective for delicate fabrics that might be damaged by water or traditional washing methods. The process involves pre-treating stains, immersing the items in a solvent, and then using specialized machines to remove the solvent and any dissolved dirt.',
+    },
+    {
+        title: 'Laundry',
+        description: 'Our laundry service for men\'s button- down shirts ensures that each shirt is meticulously cleaned and machine pressed to perfection.Shirts are machine washed using high - quality detergents that effectively remove stains and odors while preserving the fabric\'s integrity. After washing, each shirt is machine pressed to remove wrinkles, giving it a crisp and polished appearance. This service is ideal for maintaining the professional look of your dress shirts, ensuring they are always ready for any occasion.',
+    },
+    {
+        title: 'Alterations',
+        description: 'Alteration services involve tailoring clothes to fit an individual\'s unique body shape.This includes adjusting hems, taking in or letting out seams, and resizing garments.Additionally, alterations can fix rips, replace zippers, and reinforce stitching on almost all materials.This service ensures that your clothes fit perfectly and look their best.',
+    },
+    {
+        title: 'Pressing',
+        description: 'Pressing services remove wrinkles from garments by steaming and ironing. Steaming uses a blowing system to relax the fibers, while pressing involves rubbing an iron across the fabric to smooth out creases. This service is essential for maintaining the appearance of formal wear, business attire, and other garments that require a polished look.',
+    },
+    {
+        title: 'Leather',
+        description: 'Leather cleaning services use natural or synthetic substances to loosen and remove accumulated dirt and grime from leather-based materials. This process helps to maintain the leather\'s appearance and prolong its lifespan.Specialized treatments can also condition the leather, keeping it soft and supple, and protect it from future damage.',
+    },
+    {
+        title: 'Fur',
+        description: 'Fur cleaning and conditioning services enhance the longevity of your fur garments. The process makes the fur soft and supple, conditions the leather, and frees the fur of dust particles that rob it of its sheen. Regular cleaning and conditioning help maintain the fur\'s natural beauty and extend its lifespan.',
+    },
+    {
+        title: 'Bridal',
+        description: 'Bridal gown preservation involves a series of special cleaning and packaging techniques to ensure that wedding dress styles are retained over time. This service includes careful cleaning to remove stains, pressing to restore the gown\'s shape, and packaging in acid- free materials to prevent yellowing and fabric deterioration.This ensures that your wedding dress remains a cherished keepsake for years to come.',
+    },
+    {
+        title: 'Drapes',
+        description: 'Drapery cleaning services involve dry cleaning and pressing drapes and textiles used for decorative purposes. This process helps to bring out the original color and liven up rooms once again. Regular cleaning of drapes removes dust, allergens, and other particles, maintaining a fresh and vibrant appearance.',
+    },
+    {
+        title: 'Table & Bedding',
+        description: 'Table and bedding cleaning services include processing sheets and comforters in a special cycle that makes comforters look brand new and sheets crisp and clean. This service ensures that your bedding is hygienic, fresh, and comfortable, providing a better night\'s sleep.',
+    },
+];
+
 const Services = () => {
     return (
         <>
             <Container>
-                <Typography variant="h1" gutterBottom>
-                    Services
-                </Typography>
-
-                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
-                    <Typography variant="h5">Dry Cleaning</Typography>
-                    <Typography>
-                        Dry cleaning is a process that utilizes organic solvents other than
-                        water to clean clothes, bedding, upholstery and other types of
-                        fabrics.
+                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2, textAlign: 'center' }}>
+                    <Typography variant="h4" mt={4}>
+                        Services
                     </Typography>
                 </Paper>
 
-                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
-                    <Typography variant="h5">Laundry</Typography>
-                    <Typography>Laundered clothes and linens. Machine wash and press.</Typography>
-                </Paper>
+                {serviceDetails.map((service, index) => (
+                    <Paper key={index} elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
+                        <Typography variant="h5">{service.title}</Typography>
+                        <Typography>{service.description}</Typography>
+                    </Paper>
+                ))}
 
-                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
-                    <Typography variant="h5">Alterations</Typography>
-                    <Typography>
-                        Tailored clothes, suited to an individual. Adjusting clothes to fit a
-                        particular person's unique body shape. Fixed rips and reinforced
-                        stitching to almost all materials.
-                    </Typography>
-                </Paper>
-
-                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
-                    <Typography variant="h5">Pressing</Typography>
-                    <Typography>
-                        Removes wrinkles by steaming and ironing garments. Steaming is a
-                        blowing system whereas pressing rubs an iron across.
-                    </Typography>
-                </Paper>
-
-                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
-                    <Typography variant="h5">Leather</Typography>
-                    <Typography>
-                        Natural or synthetic substance that helps loosen and remove accumulated
-                        dirt and grime on leather-based material.
-                    </Typography>
-                </Paper>
-
-                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
-                    <Typography variant="h5">Fur</Typography>
-                    <Typography>
-                        Process that adds to the longevity of your fur, makes it soft and
-                        supple, conditions the leather, frees the fur of dust particles that
-                        rob your fur of its sheen.
-                    </Typography>
-                </Paper>
-
-                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
-                    <Typography variant="h5">Bridal</Typography>
-                    <Typography>
-                        Wedding dress preservation where a series of special cleaning and
-                        packaging techniques are used to ensure bridal gown styles are
-                        retained over time.
-                    </Typography>
-                </Paper>
-
-                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
-                    <Typography variant="h5">Drapes</Typography>
-                    <Typography>
-                        Drapery and textile for decorative purposes can be dry cleaned and
-                        pressed to bring out the original color and liven rooms once again.
-                    </Typography>
-                </Paper>
-
-                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
-                    <Typography variant="h5">Table & Bedding</Typography>
-                    <Typography>
-                        Sheets and comforters process in a special cycle that make comforters
-                        look brand new and the sheets crisp and clean.
-                    </Typography>
-                </Paper>
             </Container >
         </>
     );

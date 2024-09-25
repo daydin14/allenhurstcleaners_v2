@@ -4,8 +4,19 @@
 
 ### [0.5.0] - 2024-10-XX
 
-- `Pull Request` :
-  - Update Meta Description in `index.html`
+- `Pull Request` : Refactor UI layout and components, add Reviews page
+  - Add Repository Readme
+  - Removed excess logging
+  - Refactor App.css to remove unused CSS files
+  - Refactor Gdetails component to improve rendering of opening hours
+  - Refactor About and Home pages UI layout and content
+  - Refactor ServiceSquare component to update hover effect
+  - Added Reviews page and Greviews component
+  - Refactor GoogleMaps components and update UI layout
+  - Refactor ServiceSquare component, Services and About pages
+  - Refactor ThemeSwitcher button text to toggle between light and dark mode
+  - Version Bump
+- Update Meta Description in `index.html`
 
 ### [0.4.0] - 2024-09-23
 
