@@ -4,7 +4,7 @@
 
 ### [0.5.0] - 2024-10-XX
 
-- `Pull Request` :
+- `Pull Request` : Refactor UI layout and components, add Reviews page
   - Add Repository Readme
   - Removed excess logging
   - Refactor App.css to remove unused CSS files
