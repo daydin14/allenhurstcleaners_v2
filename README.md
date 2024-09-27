@@ -18,6 +18,8 @@
 ![Google Maps Badge](https://img.shields.io/badge/Google%20Maps-4285F4?logo=googlemaps&logoColor=fff&style=for-the-badge)
 ![Google Street View Badge](https://img.shields.io/badge/Google%20Street%20View-FEC111?logo=googlestreetview&logoColor=000&style=for-the-badge)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3dfcf8e7-8c0b-456c-aca6-1ecfb599de2b/deploy-status)](https://app.netlify.com/sites/allenhurstcleaners/deploys)
+
 ## Getting Started
 
 To get started with the project, follow these steps:
