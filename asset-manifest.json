@@ -1,24 +1,20 @@
 {
   "files": {
     "main.css": "/allenhurstcleaners_v2/static/css/main.4e9a8325.css",
-    "main.js": "/allenhurstcleaners_v2/static/js/main.19b6e72b.js",
+    "main.js": "/allenhurstcleaners_v2/static/js/main.8c7efacf.js",
     "static/js/453.bc7866fb.chunk.js": "/allenhurstcleaners_v2/static/js/453.bc7866fb.chunk.js",
-    "static/media/conveyer2.jpg": "/allenhurstcleaners_v2/static/media/conveyer2.dfc622447e7146c118ad.jpg",
-    "static/media/sorting.jpg": "/allenhurstcleaners_v2/static/media/sorting.56d05876c9fd58a2c072.jpg",
-    "static/media/pressing.jpg": "/allenhurstcleaners_v2/static/media/pressing.3424830ab2d5260b65a0.jpg",
-    "static/media/conveyer.jpg": "/allenhurstcleaners_v2/static/media/conveyer.a3e1c7a2f4f76cca5170.jpg",
-    "static/media/spotting.jpg": "/allenhurstcleaners_v2/static/media/spotting.355263d25e19b25af346.jpg",
-    "static/media/machine.jpg": "/allenhurstcleaners_v2/static/media/machine.ea6bece0794cf85a5aef.jpg",
-    "static/media/front.jpg": "/allenhurstcleaners_v2/static/media/front.098eaa3af0a6e2fadc22.jpg",
-    "static/media/store.jpg": "/allenhurstcleaners_v2/static/media/store.6a846ebe2d1a464212d7.jpg",
-    "static/media/store2.jpg": "/allenhurstcleaners_v2/static/media/store2.de6fcc9c6649fe9542c6.jpg",
+    "static/media/slide5.jpg": "/allenhurstcleaners_v2/static/media/slide5.0bdceb2bb87f7f438c57.jpg",
+    "static/media/slide3.jpg": "/allenhurstcleaners_v2/static/media/slide3.b6654c614e2fbf89a85e.jpg",
+    "static/media/slide2.jpg": "/allenhurstcleaners_v2/static/media/slide2.358892257cc275db2ef4.jpg",
+    "static/media/slide4.jpg": "/allenhurstcleaners_v2/static/media/slide4.8e7751ed191096a18013.jpg",
+    "static/media/slide1.jpg": "/allenhurstcleaners_v2/static/media/slide1.9bc53e631bcb9fd42aca.jpg",
     "index.html": "/allenhurstcleaners_v2/index.html",
     "main.4e9a8325.css.map": "/allenhurstcleaners_v2/static/css/main.4e9a8325.css.map",
-    "main.19b6e72b.js.map": "/allenhurstcleaners_v2/static/js/main.19b6e72b.js.map",
+    "main.8c7efacf.js.map": "/allenhurstcleaners_v2/static/js/main.8c7efacf.js.map",
     "453.bc7866fb.chunk.js.map": "/allenhurstcleaners_v2/static/js/453.bc7866fb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4e9a8325.css",
-    "static/js/main.19b6e72b.js"
+    "static/js/main.8c7efacf.js"
   ]
 }
