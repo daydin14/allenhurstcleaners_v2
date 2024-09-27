@@ -2,6 +2,30 @@
 
 ## ChangeLog
 
+## [0.7.0] - 2024-09-XX
+
+- Version Bump
+- Created GmapEmbeded, uses Google Maps Embeded API (Free)
+- Added more images to carousel slide deck
+
+---
+
+### [Netlify Deployment Testing] - (Updated) deploys from `netlify` branch.
+
+- Tests were pushed to Master branch directly (No `Pull Request`)
+  - Re-added GH-pages base url and homepage `// Previously Removed for Netlify hosting on master branch`
+  - Add Netlify deploy status badge to README.md
+  - Refactor App.js: remove basename from Router component
+  - Update ESLint configuration to warn about unused variables
+  - Update ESLint configuration to set no-unused-vars to warn
+  - Refactor netlify.toml: add build command and publish directory
+  - Refactor package.json: remove homepage field
+  - netlify.toml
+  - Testing Netlify Deployment
+  - Added Screenshots to Readme
+
+---
+
 ### [0.6.0] - 2024-10-27
 
 - `Pull Request` : Updated Theme on App.js, Updated Images for Carousel
@@ -12,7 +36,7 @@
 
 ---
 
-### [0.5.0] - 2024-10-25
+### [0.5.0] - 2024-09-25
 
 - `Pull Request` : Refactor UI layout and components, add Reviews page
   - Add Repository Readme
