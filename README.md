@@ -83,6 +83,23 @@ The application integrates with the Google Maps API to provide detailed informat
 
 For more information on the Google Maps API, visit the [Google Maps API documentation](https://developers.google.com/maps/documentation).
 
+## Screenshots
+
+<img src="./Assets/Images/Home_Page_Light.png" alt="Home Page -Light" width="400"/>
+<img src="./Assets/Images/Home_Page_Dark.png" alt="Home Page -Dark" width="400"/>
+<img src="./Assets/Images/Home_Page_Map_Marker.png" alt="Home Page Map and Map Marker" width="400"/>
+<img src="./Assets/Images/Revies_&_SidePanel.png" alt="Reviews Page and SidePanel" width="400"/>
+<img src="./Assets/Images/Contact_&_SidePanel.png" alt="Contact Page and SidePanel" width="400"/>
+
+## Environment Variables
+
+```
+   REACT_APP_GOOGLE_TAG_ID
+   REACT_APP_GOOGLE_MAPS_API_KEY
+   REACT_APP_GOOGLE_MAPS_MAP_ID
+   REACT_APP_GOOGLE_MAPS_PLACE_ID
+```
+
 ## Deployment on GitHub Pages
 
 This project uses the gh-pages node package to deploy the application to GitHub Pages.
