@@ -22,7 +22,7 @@ import { ThemeContextProvider } from './contexts/ThemeContext';
 function App() {
   return (
     <ThemeContextProvider>
-      <Router>
+      <Router basename='/allenhurstcleaners_v2/'>
         <CssBaseline />
         <SidePanelProvider>
           <ThemedAppContent />
