@@ -7,6 +7,7 @@ import './assets/styles/App.css';
 
 // MUI Components
 import { CssBaseline, Container, Box } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 // Components
 import Header from './components/Header';
@@ -20,27 +21,46 @@ import { ThemeContextProvider } from './contexts/ThemeContext';
 
 function App() {
   return (
-    <Router basename='/allenhurstcleaners_v2/'>
-      <CssBaseline />
-      <ThemeContextProvider>
+    <ThemeContextProvider>
+      <Router basename='/allenhurstcleaners_v2/'>
+        <CssBaseline />
         <SidePanelProvider>
-          <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-            <Header />
-            <SidePanel />
-            <Container maxWidth="xl" sx={{ flexGrow: 1 }}>
-              <Box my={4}>
-                <div className="main-content">
-                  <div className="content">
-                    <Routes />
-                  </div>
-                </div>
-              </Box>
-            </Container>
-            <Footer />
-          </Box>
+          <ThemedAppContent />
         </SidePanelProvider>
-      </ThemeContextProvider>
-    </Router>
+      </Router>
+    </ThemeContextProvider>
+  );
+}
+
+function ThemedAppContent() {
+  const theme = useTheme();
+
+  return (
+    <Box sx={{
+      display: 'flex',
+      flexDirection: 'column',
+      minHeight: '100vh',
+      backgroundColor: theme.palette.background.default,
+      color: theme.palette.text.primary,
+    }}>
+      <Header />
+      <SidePanel />
+      <Container maxWidth="xl" sx={{
+        flexGrow: 1,
+        backgroundColor: theme.palette.background.default,
+        color: theme.palette.text.primary,
+        minHeight: '100vh',
+      }}>
+        <Box my={4}>
+          <div className="main-content">
+            <div className="content">
+              <Routes />
+            </div>
+          </div>
+        </Box>
+      </Container>
+      <Footer />
+    </Box>
   );
 }
 

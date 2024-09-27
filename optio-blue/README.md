@@ -1,8 +1,18 @@
 # Allenhurst Cleaners v2
 
-## Changelog
+## ChangeLog
 
-### [0.5.0] - 2024-10-XX
+### [0.6.0] - 2024-10-27
+
+- `Pull Request` : Updated Theme on App.js, Updated Images for Carousel
+  - Updated Readme ChangeLog
+  - Updated Theme on App.js
+  - Updated Images for Carousel
+  - Version Bump
+
+---
+
+### [0.5.0] - 2024-10-25
 
 - `Pull Request` : Refactor UI layout and components, add Reviews page
   - Add Repository Readme
@@ -17,6 +27,8 @@
   - Refactor ThemeSwitcher button text to toggle between light and dark mode
   - Version Bump
 - Update Meta Description in `index.html`
+
+---
 
 ### [0.4.0] - 2024-09-23
 
@@ -43,6 +55,8 @@
   - Split up App.CSS styles per respective components & pages
   - Update package version to 0.4.0 in package-lock
 
+---
+
 ### [0.3.0] - 2024-09-12
 
 - Update package version to 0.3.0 in package-lock
@@ -58,6 +72,8 @@
   - Refactor index.js and add Google Tag loading utility, update ignore .env(s)
   - Refactor meta tags and manifest.json for Allenhurst Cleaners
 
+---
+
 ### [0.2.0] - 2024-09-11
 
 - `Pull Request` : Refactor Header, Sidebar, and Footer components and add ThemeSwitcher
@@ -68,6 +84,8 @@
   - Refactored Header with collapsible SidePanel
   - Version Bump
   - Update readme
+
+---
 
 ### [0.1.0] - 2024-09-10
 
