@@ -4,6 +4,7 @@
 
 ## [0.7.0] - 2024-09-XX
 
+- Version Bump
 - Created GmapEmbeded, uses Google Maps Embeded API (Free)
 - Added more images to carousel slide deck
 
