@@ -49,6 +49,9 @@ const Home = () => {
                 <Box my={2}>
                     <Gmap id="map-home" onLoad={handleMapLoad} />
                 </Box>
+                {map && (
+                    console.log("map-home")
+                )}
 
                 {/* Quick Info */}
                 <Paper elevation={3} sx={{ padding: 2 }}>

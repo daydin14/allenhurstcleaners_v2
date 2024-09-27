@@ -135,7 +135,12 @@ const Gmap = ({ id, onLoad }) => {
                 console.error('Google Maps API is not fully loaded');
             }
         } else {
-            console.log('Place details are not available yet');
+            if (!mapRef.current) {
+                console.log('Map reference is not available yet');
+            }
+            if (!place) {
+                console.log('Place details are not available yet');
+            }
         }
     }, [place, isLoaded]);
 
@@ -143,12 +148,12 @@ const Gmap = ({ id, onLoad }) => {
     const onUnmount = useCallback((map) => {
         mapRef.current = null;
         setMapLoaded(false);
-        console.log('Map unmounted:', map);
+        // console.log('Map unmounted:', map);
     }, []);
 
     // Check if map is loaded and mapRef is set
     useEffect(() => {
-        console.log('useEffect called, isLoaded:', isLoaded, 'mapLoaded:', mapLoaded);
+        // console.log('useEffect called, isLoaded:', isLoaded, 'mapLoaded:', mapLoaded);
         if (isLoaded && mapLoaded && mapRef.current) {
             console.log('Map is loaded and mapRef is set');
         } else {

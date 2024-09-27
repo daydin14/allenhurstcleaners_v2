@@ -31,10 +31,22 @@ const Greviews = ({ map, placeId }) => {
                         <Card key={index} variant="outlined" sx={{ marginBottom: 2 }}>
                             <Box display="flex" flexDirection={index % 2 === 0 ? 'row' : 'row-reverse'} alignItems="center">
                                 <CardHeader
-                                    avatar={<Avatar src={review.profile_photo_url} alt={review.author_name} />}
+                                    avatar={
+                                        <Avatar
+                                            src={review.profile_photo_url}
+                                            alt={review.author_name}
+                                            sx={index % 2 !== 0 ? { marginLeft: 2 } : {}}
+                                        />
+                                    }
                                     title={review.author_name}
-                                    subheader={new Date(review.time * 1000).toLocaleDateString()}
-                                    sx={{ flex: '0 0 auto' }}
+                                    subheader={isMobile ? new Date(review.time * 1000).toLocaleDateString() : new Date(review.time * 1000).toLocaleDateString() + ` - ${review.rating} Stars`}
+                                    sx={{
+                                        flex: '0 0 auto',
+                                        display: 'flex',
+                                        flexDirection: index % 2 === 0 ? 'row' : 'row-reverse',
+                                        alignItems: 'center',
+                                        justifyContent: index % 2 === 0 ? 'flex-start' : 'flex-end'
+                                    }}
                                 />
                             </Box>
                             <CardContent sx={{ width: '100%' }}>
