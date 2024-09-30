@@ -19,9 +19,9 @@ const Contact = () => {
         setMap(mapInstance);
     }, []);
 
-    const [mode, setMode] = useState('place');
+    const [mode, setMode] = useState('directions');
     const [mapType, setMapType] = useState('roadmap');
-    const [searchQuery, setSearchQuery] = useState('Allenhurst, New Jersey');
+    const [searchQuery, setSearchQuery] = useState('Allenhurst Cleaners');
     const [origin, setOrigin] = useState('');
     const [destination, setDestination] = useState('');
 

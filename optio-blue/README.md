@@ -2,7 +2,26 @@
 
 ## ChangeLog
 
-## [0.7.0] - 2024-09-XX
+### [0.8.0] - 2024-10-XX
+
+- Refactor Contact Page to use directions map as default, and update default search query
+- Refactor Contact Page to add geolocation functionality and improve map loading
+- Refactor GmapEmbededToolBar.js to add map type switch in directions mode
+- Refactor GmapEmbeded.js to use directions API for default map type
+- Refactor Greviews component to add "Write a Review" button and fix formatting
+- Refactor Home page to remove unused code and improve readability, Added GH Deployment comment in App.js
+- Refactored Contact Page to use Google Maps Embeded API Map and Custom Toolbar
+- Refactor Routes, NavMenu, and SidePanel components to add Sandbox page in development mode
+- Created GmapEmbededToolBar component to add toolbar functionality for map controls and search bar
+- Refactor GmapEmbeded component to support different modes, map types, search queries, origins, destinations, widths, and heights
+- Refactor Gdetails and Gmap components for mobile responsiveness
+- Refactor Header component to include a link to the homepage
+- Refactor typography variant in About, Reviews, and Services pages
+- Version Bump
+
+---
+
+### [0.7.0] - 2024-09-27
 
 - Version Bump
 - Created GmapEmbeded, uses Google Maps Embeded API (Free)
