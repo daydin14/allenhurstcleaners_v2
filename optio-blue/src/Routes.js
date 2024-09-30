@@ -8,6 +8,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Reviews from './pages/Reviews';
 import Contact from './pages/Contact';
+import Sandbox from './pages/Sandbox';
 
 const AppRoutes = () => {
     return (
@@ -18,6 +19,9 @@ const AppRoutes = () => {
                 <Route path="/services" element={<Services />} />
                 <Route path="/reviews" element={<Reviews />} />
                 <Route path="/contact" element={<Contact />} />
+                {process.env.NODE_ENV === 'development' && (
+                    <Route path="/sandbox" element={<Sandbox />} />
+                )}
             </Routes>
         </>
     );

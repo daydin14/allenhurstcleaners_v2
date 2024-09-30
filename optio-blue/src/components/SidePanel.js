@@ -107,6 +107,25 @@ const SidePanel = () => {
                     >
                         <ListItemText primary="Contact" />
                     </ListItem>
+                    {process.env.NODE_ENV === 'development' && (
+                        <ListItem
+                            button
+                            component={Link}
+                            to="/sandbox"
+                            onClick={closeSidePanel}
+                            sx={{
+                                color: 'text.primary',
+                                '&:hover': {
+                                    backgroundColor: (theme) =>
+                                        theme.palette.mode === 'light'
+                                            ? theme.palette.grey[300]
+                                            : theme.palette.grey[700],
+                                },
+                            }}
+                        >
+                            <ListItemText primary="Sandbox" />
+                        </ListItem>
+                    )}
                 </List>
             </div>
         </Drawer>
