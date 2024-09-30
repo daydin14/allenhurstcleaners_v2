@@ -53,7 +53,7 @@ const About = () => {
                 {/* Who We Are Section */}
                 <>
                     <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
-                        <Typography variant="h4" gutterBottom align='center'>
+                        <Typography variant="h4" align='center'>
                             Who We Are:
                         </Typography>
                     </Paper>
@@ -65,7 +65,7 @@ const About = () => {
                 {/* What We Do: Section */}
                 <>
                     <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
-                        <Typography variant="h4" gutterBottom align='center'>
+                        <Typography variant="h4" align='center'>
                             What We Do:
                         </Typography>
                     </Paper>
@@ -89,7 +89,7 @@ const About = () => {
                 {/* What Can We Provide: Section */}
                 <>
                     <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
-                        <Typography variant="h4" gutterBottom align='center'>
+                        <Typography variant="h4" align='center'>
                             What Can We Provide:
                         </Typography>
                     </Paper>

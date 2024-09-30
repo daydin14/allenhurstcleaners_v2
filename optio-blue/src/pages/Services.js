@@ -48,7 +48,7 @@ const Services = () => {
         <>
             <Container>
                 <Paper elevation={3} sx={{ padding: 2, marginBottom: 2, textAlign: 'center' }}>
-                    <Typography variant="h4" mt={4}>
+                    <Typography variant="h4" >
                         Services
                     </Typography>
                 </Paper>
