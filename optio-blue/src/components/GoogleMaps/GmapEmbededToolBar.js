@@ -72,6 +72,19 @@ const GmapEmbededToolBar = ({ setMode, mapType, toggleMapType, setSearchQuery, s
                 {/* Map Header and Mode Toggle */}
                 <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center', marginTop: '15px', marginBottom: '15px' }}>
                     <Typography variant="h6">Map Controls</Typography>
+                    {mode === 'directions' && (
+                        <FormControlLabel
+                            control={
+                                <Switch
+                                    checked={mapType === 'satellite'}
+                                    onChange={toggleMapType}
+                                    name="mapTypeSwitch"
+                                    color="default"
+                                />
+                            }
+                            label={`Map Type: ${mapType.charAt(0).toUpperCase() + mapType.slice(1)}`}
+                        />
+                    )}
                     <Button color="inherit" onClick={handleMenuOpen}>Map Mode</Button>
                     <Menu
                         anchorEl={anchorEl}
@@ -142,7 +155,7 @@ const GmapEmbededToolBar = ({ setMode, mapType, toggleMapType, setSearchQuery, s
                                             size="small"
                                             value={originInput}
                                             onChange={handleOriginChange}
-                                            onKeyPress={(event) => {
+                                            onKeyDown={(event) => {
                                                 if (event.key === 'Enter') {
                                                     handleFindDirections();
                                                 }
@@ -155,7 +168,7 @@ const GmapEmbededToolBar = ({ setMode, mapType, toggleMapType, setSearchQuery, s
                                             size="small"
                                             value={destinationInput}
                                             onChange={handleDestinationChange}
-                                            onKeyPress={(event) => {
+                                            onKeyDown={(event) => {
                                                 if (event.key === 'Enter') {
                                                     handleFindDirections();
                                                 }
