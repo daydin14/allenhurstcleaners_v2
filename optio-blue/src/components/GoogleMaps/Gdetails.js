@@ -27,9 +27,9 @@ const Gdetails = ({ map, placeId }) => {
         <Box
             className='gdetails'
             p={2}
-            border={1}
-            borderColor="grey.300"
-            borderRadius={2}
+            // border={1}
+            // borderColor="grey.300"
+            // borderRadius={2}
             display="flex"
             flexDirection={isMobile ? 'column' : 'row'}
             justifyContent={isMobile ? 'space-evenly' : 'space-evenly'}
