@@ -40,18 +40,14 @@ const Home = () => {
 
                 {/* Address Branding */}
                 <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
-                    <Typography variant="h4" component="h1" gutterBottom sx={{ textAlign: 'center', textDecoration: 'underline' }}>
+                    <Typography variant="h4" gutterBottom sx={{ textAlign: 'center', textDecoration: 'underline' }}>
                         530 Main Street
                     </Typography>
                 </Paper>
 
                 {/* Google Map Component */}
-                <Box my={2}>
-                    <Gmap id="map-home" onLoad={handleMapLoad} />
-                </Box>
-                {map && (
-                    console.log("map-home")
-                )}
+                <Gmap id="map-home" onLoad={handleMapLoad} />
+                {map && (<></>)} {/* Removes warning for declared but unused 'map' */}
 
                 {/* Quick Info */}
                 <Paper elevation={3} sx={{ padding: 2 }}>
