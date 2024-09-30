@@ -25,7 +25,7 @@ const GmapEmbeded = ({ mode, mapType, searchQuery, origin, destination, width, h
             src = `https://www.google.com/maps/embed/v1/search?key=${apiKey}&q=${searchQuery}&maptype=${mapType}`;
             break;
         default:
-            src = `https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${defaultDestination}&maptype=${mapType}`;
+            src = `https://www.google.com/maps/embed/v1/directions?key=${apiKey}&origin=${origin || defaultOrigin}&destination=${destination || defaultDestination}&maptype=${mapType}`;
             break;
     }
 
