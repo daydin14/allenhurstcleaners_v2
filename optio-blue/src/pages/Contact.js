@@ -1,5 +1,5 @@
 // Dependencies
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 
 // MUI Components
 import { Box, Container, Paper, Typography } from '@mui/material';
@@ -29,6 +29,28 @@ const Contact = () => {
         setMapType((prevType) => (prevType === 'roadmap' ? 'satellite' : 'roadmap'));
     };
 
+    useEffect(() => {
+        if (window.navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const { latitude, longitude } = position.coords;
+                    console.log('Geolocation coordinates:', latitude, longitude);
+                    const trimmedLatitude = String(latitude).trim();
+                    const trimmedLongitude = String(longitude).trim();
+                    setOrigin(`${trimmedLatitude},${trimmedLongitude}`);
+                    if (mapRef.current) {
+                        mapRef.current.setCenter({ lat: parseFloat(trimmedLatitude), lng: parseFloat(trimmedLongitude) });
+                    }
+                },
+                (err) => {
+                    console.error('Geolocation error:', err);
+                }
+            );
+        } else {
+            console.error('Geolocation is not supported by this browser.');
+        }
+    }, []);
+
     return (
         <>
             <Container>
@@ -40,6 +62,7 @@ const Contact = () => {
                 <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
                     <Gdetails map={map} placeId={process.env.REACT_APP_GOOGLE_MAPS_PLACE_ID} />
                     {map && (<></>)} {/* Removes warning for declared but unused 'map' */}
+                    {/* Gmap component is needed for Gdetails to work. */}
                     <Box display={'none'}>
                         <Gmap id="map-contact" onLoad={handleMapLoad} />
                     </Box>
