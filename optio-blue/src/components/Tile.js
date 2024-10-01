@@ -1,14 +1,45 @@
 // Dependencies
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+
+// Hooks
+import useIsMobile from '../hooks/useIsMobile';
 
 // MUI Components
 import { Box, Typography, Modal, Paper } from '@mui/material';
 
 const Tile = ({ frontText, backText, backgroundImage, reverse, moreInfo }) => {
     const [open, setOpen] = useState(false);
+    const isMobile = useIsMobile();
+    const tileRef = useRef(null);
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
+    useEffect(() => {
+        if (isMobile) {
+            const handleScroll = () => {
+                const tile = tileRef.current;
+                if (tile) {
+                    const rectangle = tile.getBoundingClientRect();
+                    const threeFourthsPoint = window.innerHeight - window.innerHeight / 4;
+                    if (rectangle.top < threeFourthsPoint && rectangle.bottom >= threeFourthsPoint) {
+                        tile.classList.add('scroll-animate');
+                        tile.classList.remove('scroll-animate-reverse');
+                    } else {
+                        tile.classList.remove('scroll-animate');
+                        tile.classList.add('scroll-animate-reverse');
+                    }
+                }
+            };
+
+            window.addEventListener('scroll', handleScroll);
+
+            // Cleanup event listener on component unmount
+            return () => {
+                window.removeEventListener('scroll', handleScroll);
+            };
+        }
+    }, [isMobile]);
 
     const serviceDetails = [
         {
@@ -53,7 +84,7 @@ const Tile = ({ frontText, backText, backgroundImage, reverse, moreInfo }) => {
 
     return (
         <>
-            <Box className={`tile ${reverse ? 'reverse' : ''}`} onClick={handleOpen}>
+            <Box ref={tileRef} className={`tile ${reverse ? 'reverse' : ''}`} onClick={handleOpen}>
                 <Box className="tile-inner">
                     <Box className="tile-front" style={{ backgroundImage: `url(${backgroundImage})` }}>
                         <Typography variant="h5" color="inherit">
@@ -69,8 +100,18 @@ const Tile = ({ frontText, backText, backgroundImage, reverse, moreInfo }) => {
             </Box>
 
             <Modal open={open} onClose={handleClose}>
-                <Paper sx={{ padding: 2, margin: 'auto', maxWidth: 500, top: '50%', left: '50%', transform: 'translate(-50%, -50%)', position: 'absolute' }}>
-                    <Typography variant="h6" gutterBottom>
+                <Paper sx={{
+                    padding: isMobile ? 1 : 2,
+                    margin: 'auto',
+                    maxWidth: isMobile ? '100%' : 500,
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    position: 'absolute',
+                    overflowY: 'auto',
+                    maxHeight: '100vh'
+                }}>
+                    <Typography variant="h4" gutterBottom>
                         {frontText}
                     </Typography>
                     <Typography variant="body1">

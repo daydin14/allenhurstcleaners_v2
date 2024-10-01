@@ -50,3 +50,29 @@
 .tile.reverse .tile-back {
   transform: rotateY(-180deg);
 }
+
+@keyframes tileHover {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes tileHoverReverse {
+  from {
+    transform: rotateY(180deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}
+
+.tile.scroll-animate .tile-inner {
+  animation: tileHover 0.6s forwards;
+}
+
+.tile.scroll-animate-reverse .tile-inner {
+  animation: tileHoverReverse 0.6s forwards;
+}
