@@ -23,10 +23,10 @@ export const logEvent = (category, action, label) => {
 };
 
 export const logTiming = (category, variable, value, label) => {
-    ReactGA.timing({
+    ReactGA.event({
         category: category,
-        variable: variable,
-        value: value, // in milliseconds
+        action: variable,
+        value: value,
         label: label,
     });
 };
