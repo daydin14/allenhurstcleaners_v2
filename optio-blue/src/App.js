@@ -22,7 +22,7 @@ import { ThemeContextProvider } from './contexts/ThemeContext';
 function App() {
   return (
     <ThemeContextProvider>
-      <Router basename='/allenhurstcleaners_v2/' >
+      <Router>
         {/*  
           basename='/allenhurstcleaners_v2/' is used to set the base URL for all locations.
           This is needed for GitHub Pages deployment.
