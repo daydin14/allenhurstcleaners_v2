@@ -9,26 +9,28 @@ import Gmap from '../components/GoogleMaps/Gmap';
 import Gdetails from '../components/GoogleMaps/Gdetails';
 import GmapEmbeded from '../components/GoogleMaps/GmapEmbeded';
 import GmapEmbededToolBar from '../components/GoogleMaps/GmapEmbededToolBar';
+import ContactForm from '../components/ContactForm';
 
 const Contact = () => {
+    // Google Maps API Map (not embeded) & Details
     const [map, setMap] = useState(null);
     const mapRef = useRef(null);
-
     const handleMapLoad = useCallback((mapInstance) => {
         mapRef.current = mapInstance;
         setMap(mapInstance);
     }, []);
 
+    // Google Maps Embeded Map
     const [mode, setMode] = useState('directions');
     const [mapType, setMapType] = useState('roadmap');
     const [searchQuery, setSearchQuery] = useState('Allenhurst Cleaners');
     const [origin, setOrigin] = useState('');
     const [destination, setDestination] = useState('');
-
     const toggleMapType = () => {
         setMapType((prevType) => (prevType === 'roadmap' ? 'satellite' : 'roadmap'));
     };
 
+    // Get user's geolocation coordinates and set as origin for directions map (embeded) on page load
     useEffect(() => {
         if (window.navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
@@ -54,11 +56,14 @@ const Contact = () => {
     return (
         <>
             <Container>
+                {/* Header */}
                 <Paper elevation={3} sx={{ padding: 2, marginBottom: 2, textAlign: 'center' }}>
                     <Typography variant="h4">
                         Contact Us!
                     </Typography>
                 </Paper>
+
+                {/* Google Maps API Map (Hidden) & Details */}
                 <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
                     <Gdetails map={map} placeId={process.env.REACT_APP_GOOGLE_MAPS_PLACE_ID} />
                     {map && (<></>)} {/* Removes warning for declared but unused 'map' */}
@@ -67,6 +72,8 @@ const Contact = () => {
                         <Gmap id="map-contact" onLoad={handleMapLoad} />
                     </Box>
                 </Paper>
+
+                {/* Embeded Google Maps */}
                 <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
                     <GmapEmbededToolBar
                         setMode={setMode}
@@ -86,6 +93,9 @@ const Contact = () => {
                         height={450}
                     />
                 </Paper>
+
+                {/* Contact Form */}
+                <ContactForm />
             </Container>
         </>
     );

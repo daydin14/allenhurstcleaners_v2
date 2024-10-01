@@ -4,6 +4,7 @@
 
 ### [0.8.0] - 2024-10-XX
 
+- Created ContactForm component to add contact form functionality on Contact page
 - Refactor Contact Page to use directions map as default, and update default search query
 - Refactor Contact Page to add geolocation functionality and improve map loading
 - Refactor GmapEmbededToolBar.js to add map type switch in directions mode
