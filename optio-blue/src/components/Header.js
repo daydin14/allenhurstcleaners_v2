@@ -1,5 +1,6 @@
 // Dependencies
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // MUI Components
 import AppBar from '@mui/material/AppBar';
@@ -26,9 +27,13 @@ const Header = () => {
                 <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleSidePanel}>
                     <MenuIcon />
                 </IconButton>
+
                 <Typography variant="h6" style={{ flexGrow: 1 }}>
-                    Allenhurst Cleaners
+                    <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
+                        Allenhurst Cleaners
+                    </Link>
                 </Typography>
+
                 {isMobile ? <ThemeSwitcher /> : <NavMenu />}
             </Toolbar>
         </AppBar>

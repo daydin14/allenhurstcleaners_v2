@@ -1,37 +1,45 @@
 // Dependencies
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 // Hooks
 import useIsMobile from '../hooks/useIsMobile';
 
 // MUI Components
-import { Container, Paper, Typography, Button, Switch, FormControlLabel, Box, Toolbar, Tab, Tabs } from '@mui/material';
+import { Box, Typography, Modal, Paper } from '@mui/material';
 
-const Services = () => {
-    const [isListView, setIsListView] = useState(false);
-    const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
+const Tile = ({ frontText, backText, backgroundImage, reverse, moreInfo }) => {
+    const [open, setOpen] = useState(false);
     const isMobile = useIsMobile();
+    const tileRef = useRef(null);
 
-    const handleViewChange = () => {
-        setIsListView(!isListView);
-    };
-
-    const handleNext = () => {
-        setCurrentServiceIndex((prevIndex) => (prevIndex + 1) % serviceDetails.length);
-    };
-
-    const handlePrev = () => {
-        setCurrentServiceIndex((prevIndex) => (prevIndex - 1 + serviceDetails.length) % serviceDetails.length);
-    };
-
-    const handleTabChange = (event, newValue) => {
-        event.preventDefault();
-        setCurrentServiceIndex(newValue);
-    };
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
     useEffect(() => {
-        setCurrentServiceIndex(null);
-    }, []);
+        if (isMobile) {
+            const handleScroll = () => {
+                const tile = tileRef.current;
+                if (tile) {
+                    const rectangle = tile.getBoundingClientRect();
+                    const threeFourthsPoint = window.innerHeight - window.innerHeight / 4;
+                    if (rectangle.top < threeFourthsPoint && rectangle.bottom >= threeFourthsPoint) {
+                        tile.classList.add('scroll-animate');
+                        tile.classList.remove('scroll-animate-reverse');
+                    } else {
+                        tile.classList.remove('scroll-animate');
+                        tile.classList.add('scroll-animate-reverse');
+                    }
+                }
+            };
+
+            window.addEventListener('scroll', handleScroll);
+
+            // Cleanup event listener on component unmount
+            return () => {
+                window.removeEventListener('scroll', handleScroll);
+            };
+        }
+    }, [isMobile]);
 
     const serviceDetails = [
         {
@@ -72,74 +80,47 @@ const Services = () => {
         },
     ];
 
+    const service = serviceDetails.find(service => service.title === frontText);
+
     return (
-        <Container>
-            {/* Header */}
-            <Box display="flex" justifyContent="space-between" alignItems="center" sx={{ marginBottom: 2 }}>
-                <Typography variant="h4">Services</Typography>
-                <FormControlLabel
-                    control={<Switch checked={isListView} onChange={handleViewChange} />}
-                    label={isListView ? 'List View' : 'Panel View'}
-                />
+        <>
+            <Box ref={tileRef} className={`tile ${reverse ? 'reverse' : ''}`} onClick={handleOpen}>
+                <Box className="tile-inner">
+                    <Box className="tile-front" style={{ backgroundImage: `url(${backgroundImage})` }}>
+                        <Typography variant="h5" color="inherit">
+                            {frontText}
+                        </Typography>
+                    </Box>
+                    <Box className="tile-back">
+                        <Typography variant="body1">
+                            {backText}
+                        </Typography>
+                    </Box>
+                </Box>
             </Box>
 
-            {/* List View */}
-            {isListView ? (
-                serviceDetails.map((service, index) => (
-                    // Display service details
-                    <Paper key={index} elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
-                        <Typography variant="h5">{service.title}</Typography>
-                        <Typography>{service.description}</Typography>
-                    </Paper>
-                ))
-            ) : (
-                // Panel View
-                <Paper elevation={3} sx={{ padding: 4, marginBottom: 4, textAlign: 'center' }}>
-                    {/* Toolbar of Tabs */}
-                    <Toolbar sx={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                        <Tabs
-                            value={currentServiceIndex}
-                            onChange={handleTabChange}
-                            variant="scrollable"
-                            scrollButtons="auto"
-                            aria-label="service tabs"
-                        >
-                            {serviceDetails.map((service, index) => (
-                                <Tab key={index} label={service.title} />
-                            ))}
-                        </Tabs>
-                    </Toolbar>
-
-                    {/* Content */}
-                    <Box sx={{ padding: 4, marginTop: 4, minHeight: isMobile ? '600px' : '350px' }}>
-                        {currentServiceIndex === null ? (
-                            // Initial state
-                            <Typography variant={isMobile ? "h3" : "h4"} align="center">
-                                Select a service above for more details
-                            </Typography>
-                        ) : (
-                            // Display service details
-                            <>
-                                <Typography variant="h5">{serviceDetails[currentServiceIndex].title}</Typography>
-                                <br />
-                                <Typography>{serviceDetails[currentServiceIndex].description}</Typography>
-                            </>
-                        )}
-                    </Box>
-
-                    {/* Navgiation Buttons */}
-                    <Box display="flex" justifyContent="space-between" sx={{ marginTop: 4 }}>
-                        <Button variant="contained" onClick={handlePrev}>
-                            &lt; Prev
-                        </Button>
-                        <Button variant="contained" onClick={handleNext}>
-                            Next &gt;
-                        </Button>
-                    </Box>
+            <Modal open={open} onClose={handleClose}>
+                <Paper sx={{
+                    padding: isMobile ? 1 : 2,
+                    margin: 'auto',
+                    maxWidth: isMobile ? '100%' : 500,
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    position: 'absolute',
+                    overflowY: 'auto',
+                    maxHeight: '100vh'
+                }}>
+                    <Typography variant="h4" gutterBottom>
+                        {frontText}
+                    </Typography>
+                    <Typography variant="body1">
+                        {service ? service.description : 'No additional information available.'}
+                    </Typography>
                 </Paper>
-            )}
-        </Container>
+            </Modal>
+        </>
     );
 };
 
-export default Services;
+export default Tile;
