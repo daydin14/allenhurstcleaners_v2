@@ -5,6 +5,7 @@
 ### [0.9.0] - 2024-10-0X
 
 - `Pull Request` : Updated how Google Analytics Tag is Embeded
+  - Include Google Analytics Integration into Repo Readme
   - Refactor Gmap component to conditionally log warnings and markers based on display prop
   - Refactored Components, Contexts, Hooks, and Pages for Google Analytics Integration
   - Refactor Google Analytics integration and removed old integration (Gtag)
