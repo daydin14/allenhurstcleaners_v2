@@ -1,5 +1,6 @@
 /* Component Styles */
 @import "./components/SidePanel.css";
+@import "./components/Tile.css";
 
 /* Page Styles */
 /* @import "./pages/Home.css"; */

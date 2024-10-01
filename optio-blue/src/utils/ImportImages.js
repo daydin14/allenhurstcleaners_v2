@@ -7,6 +7,6 @@ function importAll(rc) {
     return images;
 }
 
-const images = importAll(require.context('../assets/images', false, /\.(png|jpe?g|svg)$/));
+const images = importAll(require.context('../assets/images/carousel', false, /\.(png|jpe?g|svg)$/));
 
 export default images;

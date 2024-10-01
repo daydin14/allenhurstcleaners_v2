@@ -170,7 +170,7 @@ const Gmap = ({ id, onLoad }) => {
             <GoogleMap
                 mapContainerStyle={containerStyle}
                 center={center}
-                zoom={14}
+                zoom={18}
                 onLoad={handleMapLoad}
                 onUnmount={onUnmount}
                 mapId={mapId}

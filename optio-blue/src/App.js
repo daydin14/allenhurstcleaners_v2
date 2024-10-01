@@ -23,6 +23,11 @@ function App() {
   return (
     <ThemeContextProvider>
       <Router>
+        {/*  
+          basename='/allenhurstcleaners_v2/' is used to set the base URL for all locations.
+          This is needed for GitHub Pages deployment.
+          Must be removed for Netlify deployment.
+        */}
         <CssBaseline />
         <SidePanelProvider>
           <ThemedAppContent />
