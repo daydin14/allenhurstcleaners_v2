@@ -49,6 +49,9 @@ const GmapEmbededToolBar = ({ setMode, mapType, toggleMapType, setSearchQuery, s
         setAnchorEl(null);
         logEvent('GmapEmbededToolBar', 'Menu Close', 'Menu closed');
     };
+    const handleMenuClose = () => {
+        setAnchorEl(null);
+    };
     const handleMenuItemClick = (mode) => {
         setMode(mode);
         handleMenuClose();
@@ -63,6 +66,9 @@ const GmapEmbededToolBar = ({ setMode, mapType, toggleMapType, setSearchQuery, s
     const handleDestinationChange = (event) => {
         setDestinationInput(event.target.value);
         logEvent('GmapEmbededToolBar', 'Destination Change', `Destination: ${event.target.value}`);
+    };
+    const handleDestinationChange = (event) => {
+        setDestinationInput(event.target.value);
     };
     const handleFindDirections = () => {
         const origin = originInput.trim() === '' ? 'current+location' : originInput;

@@ -14,6 +14,7 @@ import ContactForm from '../components/ContactForm';
 // Utils
 import { logPageView, logTiming, logEvent } from '../utils/Ganalytics';
 
+
 const Contact = () => {
     // Google Maps API Map (not embeded) & Details
     const [map, setMap] = useState(null);
@@ -61,6 +62,39 @@ const Contact = () => {
                 (err) => {
                     console.error('Geolocation error:', err);
                     logEvent('Contact', 'Geolocation Error', err.message);
+                }
+            );
+        } else {
+            console.error('Geolocation is not supported by this browser.');
+        }
+    }, []);
+
+    // Google Maps Embeded Map
+    const [mode, setMode] = useState('directions');
+    const [mapType, setMapType] = useState('roadmap');
+    const [searchQuery, setSearchQuery] = useState('Allenhurst Cleaners');
+    const [origin, setOrigin] = useState('');
+    const [destination, setDestination] = useState('');
+    const toggleMapType = () => {
+        setMapType((prevType) => (prevType === 'roadmap' ? 'satellite' : 'roadmap'));
+    };
+
+    // Get user's geolocation coordinates and set as origin for directions map (embeded) on page load
+    useEffect(() => {
+        if (window.navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const { latitude, longitude } = position.coords;
+                    console.log('Geolocation coordinates:', latitude, longitude);
+                    const trimmedLatitude = String(latitude).trim();
+                    const trimmedLongitude = String(longitude).trim();
+                    setOrigin(`${trimmedLatitude},${trimmedLongitude}`);
+                    if (mapRef.current) {
+                        mapRef.current.setCenter({ lat: parseFloat(trimmedLatitude), lng: parseFloat(trimmedLongitude) });
+                    }
+                },
+                (err) => {
+                    console.error('Geolocation error:', err);
                 }
             );
         } else {

@@ -13,6 +13,7 @@ const ContactForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+      
         const mailtoLink = `mailto:allenhurstcleaners@gmail.com?subject=Website Contact Form Submission from ${name}&body=${encodeURIComponent(message)}`;
         logEvent('ContactForm', 'Submit', `Name: ${name}, Message: ${message.length} characters`);
 
