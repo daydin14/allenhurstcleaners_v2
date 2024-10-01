@@ -33,7 +33,7 @@ const libraries = ['places', 'maps', 'marker'];
 // Map ID
 const mapId = process.env.REACT_APP_GOOGLE_MAPS_MAP_ID;
 
-const Gmap = ({ id, onLoad }) => {
+const Gmap = ({ id, onLoad, display }) => {
     // Map reference and state
     const mapRef = useRef(null);
     const [mapLoaded, setMapLoaded] = useState(false);
@@ -80,7 +80,9 @@ const Gmap = ({ id, onLoad }) => {
                         });
                         logEvent('Gmap', 'Advanced Marker Added', `Marker added for place: ${place.name}`);
                     } else {
-                        console.warn('AdvancedMarkerElement is not available');
+                        if (display !== 'none') {
+                            console.warn('AdvancedMarkerElement is not available');
+                        }
                         marker = new window.google.maps.Marker({
                             position: center,
                             map: mapRef.current,
@@ -98,7 +100,9 @@ const Gmap = ({ id, onLoad }) => {
                                 fontWeight: 'bold',
                             },
                         });
-                        console.log('Deprecated Marker added:', marker);
+                        if (display !== 'none') {
+                            console.log('Deprecated Marker added:', marker);
+                        }
                         logEvent('Gmap', 'Deprecated Marker Added', `Marker added for place: ${place.name}`);
 
                         // Store the marker reference
@@ -142,7 +146,7 @@ const Gmap = ({ id, onLoad }) => {
                 console.error('Google Maps API is not fully loaded');
             }
         }
-    }, [place, isLoaded, mapLoaded]);
+    }, [place, isLoaded, mapLoaded, display]);
 
     // CleanUp & Unmount the map
     const onUnmount = useCallback((map) => {

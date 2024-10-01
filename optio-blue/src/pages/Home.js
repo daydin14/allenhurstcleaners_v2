@@ -57,7 +57,7 @@ const Home = () => {
                 </Paper>
 
                 {/* Google Map Component */}
-                <Gmap id="map-home" onLoad={handleMapLoad} />
+                <Gmap id="map-home" onLoad={handleMapLoad} display={'visible'} />
                 {map && (<></>)} {/* Removes warning for declared but unused 'map' */}
 
                 {/* Quick Info */}

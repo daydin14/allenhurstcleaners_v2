@@ -84,7 +84,7 @@ const Contact = () => {
                     {map && (<></>)} {/* Removes warning for declared but unused 'map' */}
                     {/* Gmap component is needed for Gdetails to work. */}
                     <Box display={'none'}>
-                        <Gmap id="map-contact" onLoad={handleMapLoad} />
+                        <Gmap id="map-contact" onLoad={handleMapLoad} display={'none'} />
                     </Box>
                 </Paper>
 

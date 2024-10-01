@@ -45,8 +45,8 @@ const Reviews = () => {
                             <Greviews map={map} placeId={process.env.REACT_APP_GOOGLE_MAPS_PLACE_ID} />
                         </Box>
                     )}
-                    <Box id="map-review" display={'none'}>
-                        <Gmap onLoad={handleMapLoad} />
+                    <Box display={'none'}>
+                        <Gmap id={"map-review"} onLoad={handleMapLoad} display={'none'} />
                     </Box>
                 </Paper>
             </Container>
