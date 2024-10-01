@@ -10,10 +10,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 // Utilities
-import { loadGoogleTag } from './utils/Gtag';
+import { initGA, logPageView } from './utils/Ganalytics';
 
-// Load Google Tag
-loadGoogleTag();
+// Initialize Google Analytics
+initGA();
+logPageView();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -7,6 +7,15 @@ import useIsMobile from '../hooks/useIsMobile';
 // MUI Components
 import { Container, Paper, Typography, Button, Switch, FormControlLabel, Box, Toolbar, Tab, Tabs } from '@mui/material';
 
+// Utils
+import { logPageView, logTiming, logEvent } from '../utils/Ganalytics';
+
+// Hooks
+import useIsMobile from '../hooks/useIsMobile';
+
+// MUI Components
+import { Container, Paper, Typography, Button, Switch, FormControlLabel, Box, Toolbar, Tab, Tabs } from '@mui/material';
+
 const Services = () => {
     const [isListView, setIsListView] = useState(false);
     const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
@@ -14,26 +23,43 @@ const Services = () => {
 
     const handleViewChange = () => {
         setIsListView(!isListView);
+        logEvent('Services', 'Change View', isListView ? 'Grid View' : 'List View');
     };
 
     const handleNext = () => {
         setCurrentServiceIndex((prevIndex) => (prevIndex + 1) % serviceDetails.length);
+        logEvent('Services', 'Next Service', `Service Index: ${currentServiceIndex + 1}`);
     };
 
     const handlePrev = () => {
         setCurrentServiceIndex((prevIndex) => (prevIndex - 1 + serviceDetails.length) % serviceDetails.length);
+        logEvent('Services', 'Previous Service', `Service Index: ${currentServiceIndex - 1}`);
     };
 
     const handleTabChange = (event, newValue) => {
         event.preventDefault();
         setCurrentServiceIndex(newValue);
+        logEvent('Services', 'Change Tab', `Tab Index: ${newValue}`);
     };
 
     useEffect(() => {
-        setCurrentServiceIndex(null);
-    }, []);
+        setCurrentServiceIndex(0);
+
+        // Google Analytics
+        logPageView();
+        const startTime = performance.now();
+        setTimeout(() => {
+            const endTime = performance.now();
+            const duration = endTime - startTime;
+            logTiming('User Engagement', 'Time on Services Page', duration, 'Services Page');
+        }, 1000);
+    };
 
     const serviceDetails = [
+        {
+            title: 'Services: ',
+            description: 'Select a service above for more details',
+        },
         {
             title: 'Dry Cleaning',
             description: 'Dry cleaning is a process that utilizes organic solvents other than water to clean clothes, bedding, upholstery, and other types of fabrics. This method is particularly effective for delicate fabrics that might be damaged by water or traditional washing methods. The process involves pre-treating stains, immersing the items in a solvent, and then using specialized machines to remove the solvent and any dissolved dirt.',
@@ -112,19 +138,11 @@ const Services = () => {
 
                     {/* Content */}
                     <Box sx={{ padding: 4, marginTop: 4, minHeight: isMobile ? '600px' : '350px' }}>
-                        {currentServiceIndex === null ? (
-                            // Initial state
-                            <Typography variant={isMobile ? "h3" : "h4"} align="center">
-                                Select a service above for more details
-                            </Typography>
-                        ) : (
-                            // Display service details
-                            <>
-                                <Typography variant="h5">{serviceDetails[currentServiceIndex].title}</Typography>
-                                <br />
-                                <Typography>{serviceDetails[currentServiceIndex].description}</Typography>
-                            </>
-                        )}
+                        <>
+                            <Typography variant="h5">{serviceDetails[currentServiceIndex].title}</Typography>
+                            <br />
+                            <Typography>{serviceDetails[currentServiceIndex].description}</Typography>
+                        </>
                     </Box>
 
                     {/* Navgiation Buttons */}

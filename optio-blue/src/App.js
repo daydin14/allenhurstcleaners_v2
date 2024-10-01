@@ -1,6 +1,6 @@
 // Dependencies
-import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, useLocation } from 'react-router-dom';
 
 // Styles
 import './assets/styles/App.css';
@@ -19,6 +19,26 @@ import SidePanel from './components/SidePanel';
 import { SidePanelProvider } from './contexts/SidePanelContext';
 import { ThemeContextProvider } from './contexts/ThemeContext';
 
+// Utils
+import { logPageView } from './utils/Ganalytics';
+
+function AppContent() {
+  const location = useLocation();
+
+  useEffect(() => {
+    logPageView();
+  }, [location]);
+
+  return (
+    <>
+      <CssBaseline />
+      <SidePanelProvider>
+        <ThemedAppContent />
+      </SidePanelProvider>
+    </>
+  );
+}
+
 function App() {
   return (
     <ThemeContextProvider>
@@ -28,10 +48,7 @@ function App() {
           This is needed for GitHub Pages deployment.
           Must be removed for Netlify deployment.
         */}
-        <CssBaseline />
-        <SidePanelProvider>
-          <ThemedAppContent />
-        </SidePanelProvider>
+        <AppContent />
       </Router>
     </ThemeContextProvider>
   );
@@ -52,17 +69,8 @@ function ThemedAppContent() {
       <SidePanel />
       <Container maxWidth="xl" sx={{
         flexGrow: 1,
-        backgroundColor: theme.palette.background.default,
-        color: theme.palette.text.primary,
-        minHeight: '100vh',
       }}>
-        <Box my={4}>
-          <div className="main-content">
-            <div className="content">
-              <Routes />
-            </div>
-          </div>
-        </Box>
+        <Routes />
       </Container>
       <Footer />
     </Box>

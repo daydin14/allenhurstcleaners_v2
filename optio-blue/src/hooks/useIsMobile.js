@@ -1,12 +1,19 @@
 // Dependencies
 import { useState, useEffect } from 'react';
 
+// Utils
+import { logEvent } from '../utils/Ganalytics';
+
 const useIsMobile = (breakpoint = 768) => {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= breakpoint);
 
     useEffect(() => {
         const handleResize = () => {
-            setIsMobile(window.innerWidth <= breakpoint);
+            const newIsMobile = window.innerWidth <= breakpoint;
+            if (newIsMobile !== isMobile) {
+                setIsMobile(newIsMobile);
+                logEvent('useIsMobile', 'Resize', newIsMobile ? 'Mobile View' : 'Desktop View');
+            }
         };
 
         window.addEventListener('resize', handleResize);
@@ -15,7 +22,7 @@ const useIsMobile = (breakpoint = 768) => {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [breakpoint]);
+    }, [breakpoint, isMobile]);
 
     return isMobile;
 };

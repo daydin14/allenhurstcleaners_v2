@@ -1,5 +1,5 @@
 // Dependencies
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 
 // MUI Components
 import { Container, Paper, Typography, Box } from '@mui/material';
@@ -13,6 +13,7 @@ import Gmap from '../components/GoogleMaps/Gmap';
 
 // Utils
 import images from '../utils/ImportImages';
+import { logPageView, logTiming } from '../utils/Ganalytics';
 
 const Home = () => {
     const [map, setMap] = useState(null);
@@ -21,6 +22,16 @@ const Home = () => {
     const handleMapLoad = useCallback((mapInstance) => {
         mapRef.current = mapInstance;
         setMap(mapInstance);
+    }, []);
+
+    useEffect(() => {
+        logPageView();
+        const startTime = performance.now();
+        setTimeout(() => {
+            const endTime = performance.now();
+            const duration = endTime - startTime;
+            logTiming('User Engagement', 'Time on Home Page', duration, 'Home Page');
+        }, 1000);
     }, []);
 
     return (
@@ -46,7 +57,7 @@ const Home = () => {
                 </Paper>
 
                 {/* Google Map Component */}
-                <Gmap id="map-home" onLoad={handleMapLoad} />
+                <Gmap id="map-home" onLoad={handleMapLoad} display={'visible'} />
                 {map && (<></>)} {/* Removes warning for declared but unused 'map' */}
 
                 {/* Quick Info */}

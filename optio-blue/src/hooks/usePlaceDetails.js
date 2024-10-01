@@ -1,4 +1,8 @@
+// Dependencies
 import { useState, useEffect } from 'react';
+
+// Utils
+import { logEvent } from '../utils/Ganalytics';
 
 const usePlaceDetails = (map, placeId) => {
     const [place, setPlace] = useState(null);
@@ -14,9 +18,11 @@ const usePlaceDetails = (map, placeId) => {
             if (serviceStatus === window.google.maps.places.PlacesServiceStatus.OK) {
                 setPlace(result);
                 setStatus(serviceStatus);
+                logEvent('usePlaceDetails', 'Fetch Success', `Place ID: ${placeId}`);
             } else {
                 setError(`Error fetching place details: ${serviceStatus}`);
                 setStatus(serviceStatus);
+                logEvent('usePlaceDetails', 'Fetch Error', `Place ID: ${placeId}, Status: ${serviceStatus}`);
             }
         });
     }, [map, placeId]);

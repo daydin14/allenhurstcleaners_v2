@@ -7,13 +7,23 @@ import useIsMobile from '../hooks/useIsMobile';
 // MUI Components
 import { Box, Typography, Modal, Paper } from '@mui/material';
 
+// Utils
+import { logEvent } from '../utils/Ganalytics';
+
 const Tile = ({ frontText, backText, backgroundImage, reverse, moreInfo }) => {
     const [open, setOpen] = useState(false);
     const isMobile = useIsMobile();
     const tileRef = useRef(null);
 
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const handleOpen = () => {
+        setOpen(true);
+        logEvent('Tile', 'Open Modal', frontText);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+        logEvent('Tile', 'Close Modal', frontText);
+    };
 
     useEffect(() => {
         if (isMobile) {

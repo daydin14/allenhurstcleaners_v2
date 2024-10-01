@@ -2,6 +2,20 @@
 
 ## ChangeLog
 
+### [0.9.0] - 2024-10-0X
+
+- `Pull Request` : Updated how Google Analytics Tag is Embeded
+  - Include Google Analytics Integration into Repo Readme
+  - Refactor Gmap component to conditionally log warnings and markers based on display prop
+  - Refactored Components, Contexts, Hooks, and Pages for Google Analytics Integration
+  - Refactor Google Analytics integration and removed old integration (Gtag)
+  - Add Ganalytics utility module for Google Analytics integration
+  - Deleted ServiceSquare component
+  - Add react-ga4 package to dependencies
+  - Version Bump
+
+---
+
 ### [0.8.0] - 2024-10-01
 
 - `Pull Request` : Created GmapEmbededToolBar, Tile, ContactForm components & Update UI

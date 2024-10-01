@@ -7,6 +7,9 @@ import { CircularProgress, Typography, Box, useMediaQuery, useTheme, Card, CardC
 // Hooks
 import usePlaceDetails from '../../hooks/usePlaceDetails';
 
+// Utils
+import { logEvent } from '../../utils/Ganalytics';
+
 const Greviews = ({ map, placeId }) => {
     const { place, status, error } = usePlaceDetails(map, placeId);
     const theme = useTheme();
@@ -29,7 +32,15 @@ const Greviews = ({ map, placeId }) => {
                         Rating: {place.rating} ({place.user_ratings_total} reviews)
                     </Typography>
                 )}
-                <Button variant="contained" color="primary" href={googleReviewUrl} target="_blank" rel="noopener noreferrer">
+                <Button
+                    variant="contained"
+                    color="primary"
+                    href={googleReviewUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => logEvent('Reviews', 'Click', 'Write a Review')}
+                // OnClick event to log the event to Google Analytics
+                >
                     Write a Review
                 </Button>
             </Box>
