@@ -4,6 +4,7 @@
 
 ### [0.8.0] - 2024-10-XX
 
+- Refactor About page to use Box component for displaying service details
 - Refactor Tile component to add scroll animation on mobile devices
 - Refactor About page to use Tile component for displaying service details
 - Refactor Services page to add list and panel view for displaying service details
