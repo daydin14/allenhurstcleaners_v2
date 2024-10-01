@@ -4,6 +4,11 @@
 
 ### [0.8.0] - 2024-10-XX
 
+- Refactor About page to use Tile component for displaying service details
+- Refactor Services page to add list and panel view for displaying service details
+- Testing new Tile(s) component
+- Created Tile component to add modal functionality for displaying service details and styles
+- Refactor ImportImages.js to update image import path for carousel images
 - Created ContactForm component to add contact form functionality on Contact page
 - Refactor Contact Page to use directions map as default, and update default search query
 - Refactor Contact Page to add geolocation functionality and improve map loading

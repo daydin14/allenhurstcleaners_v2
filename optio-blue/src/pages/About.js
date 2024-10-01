@@ -2,47 +2,56 @@
 import React from 'react';
 
 // MUI Components
-import { Container, Paper, Typography, Grid, Box } from '@mui/material';
+import { Container, Paper, Typography, Grid2 } from '@mui/material';
 
 // Components
-import ServiceSquare from '../components/ServiceSquare';
+import Tile from '../components/Tile';
 
-const serviceSquareData = [
+const tilesData = [
     {
-        title: 'Dry Cleaning',
-        description: 'Dry cleaning is a process that utilizes organic solvents other than water to clean clothes, bedding, upholstery and other types of fabrics.',
+        frontText: 'Dry Cleaning',
+        backText: 'Treat, Clean, and Steam!',
+        backgroundImage: 'url-to-image-1.jpg'
     },
     {
-        title: 'Laundry',
-        description: 'Laundered clothes and linens. Machine wash and press.',
+        frontText: 'Laundry',
+        backText: 'Our laundry service for men\'s button- down shirts ensures that each shirt is machine washed and machine pressed to perfection. On a hanger or in a box!',
+        backgroundImage: 'url-to-image-1.jpg'
     },
     {
-        title: 'Alterations',
-        description: 'Tailored clothes, suited to an individual. Adjusting clothes to fit a particular person\'s unique body shape. Fixed rips and reinforced stitching to almost all materials.',
+        frontText: 'Alterations',
+        backText: 'Tailors, seemstresses, and dressmakers can alter clothes to fit an individual\'s unique body shape.',
+        backgroundImage: 'url-to-image-1.jpg'
     },
     {
-        title: 'Pressing',
-        description: 'Removes wrinkles by steaming and ironing garments. Steaming is a blowing system whereas pressing rubs an iron across.',
+        frontText: 'Pressing',
+        backText: 'Hand pressing services, steaming and ironing.',
+        backgroundImage: 'url-to-image-1.jpg'
     },
     {
-        title: 'Leather',
-        description: 'Natural or synthetic substance that helps loosen and remove accumulated dirt and grime on leather-based material.',
+        frontText: 'Leather',
+        backText: 'Revitalizes and brings back the original shine and vitality to your leather and suede items.',
+        backgroundImage: 'url-to-image-1.jpg'
     },
     {
-        title: 'Fur',
-        description: 'Process that adds to the longevity of your fur, makes it soft and supple, conditions the leather, frees the fur of dust particles that rob your fur of its sheen.',
+        frontText: 'Fur',
+        backText: 'Restores the luxurious feel and appearance of your fur items.',
+        backgroundImage: 'url-to-image-1.jpg'
     },
     {
-        title: 'Bridal',
-        description: 'Wedding dress preservation where a series of special cleaning and packaging techniques are used to ensure bridal gown styles are retained over time.',
+        frontText: 'Bridal',
+        backText: 'Protects and preserves your wedding dress, keeping its charm and splendor intact.',
+        backgroundImage: 'url-to-image-1.jpg'
     },
     {
-        title: 'Drapes',
-        description: 'Drapery and textile for decorative purposes can be dry cleaned and pressed to bring out the original color and liven rooms once again.',
+        frontText: 'Drapes',
+        backText: 'Refreshes and cleans your drapes, restoring their original beauty.',
+        backgroundImage: 'url-to-image-1.jpg'
     },
     {
-        title: 'Table & Bedding',
-        description: 'Sheets and comforters process in a special cycle that make comforters look brand new and the sheets crisp and clean.',
+        frontText: 'Table & Bedding',
+        backText: 'We can process sheets, comforters, table cloths, napkins, and limited blankets in a special cycle that freshens your linens and revitalizes them.',
+        backgroundImage: 'url-to-image-1.jpg'
     },
 ];
 
@@ -89,19 +98,19 @@ const About = () => {
                 {/* What Can We Provide: Section */}
                 <>
                     <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
-                        <Typography variant="h4" align='center'>
-                            What Can We Provide:
-                        </Typography>
-                    </Paper>
-                    <Box sx={{ flexGrow: 1 }}>
-                        <Grid container spacing={2}>
-                            {serviceSquareData.map((service, index) => (
-                                <Grid item xs={12} sm={6} md={4} key={index}>
-                                    <ServiceSquare title={service.title} description={service.description} />
-                                </Grid>
+                        <Grid2 container spacing={2} display={'flex'} justifyContent={'center'} alignContent={'center'}>
+                            {tilesData.map((tile, index) => (
+                                <Grid2 item key={index} xs={6} sm={4} md={3} lg={3} xl={3}>
+                                    <Tile
+                                        frontText={tile.frontText}
+                                        backText={tile.backText}
+                                        backgroundImage={tile.backgroundImage}
+                                        reverse={index % 2 === 1} // Apply reverse class to every other tile
+                                    />
+                                </Grid2>
                             ))}
-                        </Grid>
-                    </Box>
+                        </Grid2>
+                    </Paper>
                 </>
 
             </Container>
