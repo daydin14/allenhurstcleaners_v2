@@ -85,6 +85,12 @@ The application integrates with the Google Maps API to provide detailed informat
 
 For more information on the Google Maps API, visit the [Google Maps API documentation](https://developers.google.com/maps/documentation).
 
+- Google Maps APIs (Google Libraries) used within the application
+  - places
+  - maps
+  - marker
+  - embeded maps
+
 ## Screenshots
 
 <img src="./Assets/Images/Home_Page_Light.png" alt="Home Page -Light" width="400"/>
@@ -94,6 +100,8 @@ For more information on the Google Maps API, visit the [Google Maps API document
 <img src="./Assets/Images/Contact_&_SidePanel.png" alt="Contact Page and SidePanel" width="400"/>
 
 ## Environment Variables
+
+Note there is configuration setup that needs to be done on Google Maps Platform Console to use the Google Maps API
 
 ```
    REACT_APP_GOOGLE_TAG_ID
