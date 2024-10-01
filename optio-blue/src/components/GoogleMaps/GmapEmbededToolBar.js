@@ -1,6 +1,9 @@
 // Dependencies
 import React, { useState } from 'react';
 
+// Hooks
+import useIsMobile from '../../hooks/useIsMobile';
+
 // Mui Components
 import { AppBar, Toolbar, Button, Typography, Menu, MenuItem, Switch, FormControlLabel, TextField, IconButton, InputAdornment } from '@mui/material';
 
@@ -8,6 +11,7 @@ import { AppBar, Toolbar, Button, Typography, Menu, MenuItem, Switch, FormContro
 import ClearIcon from '@mui/icons-material/Clear';
 
 const GmapEmbededToolBar = ({ setMode, mapType, toggleMapType, setSearchQuery, setOrigin, setDestination, mode }) => {
+    const isMobile = useIsMobile();
     const [searchInput, setSearchInput] = useState('');
     const [anchorEl, setAnchorEl] = useState(null);
     const [originInput, setOriginInput] = useState('');
@@ -70,32 +74,47 @@ const GmapEmbededToolBar = ({ setMode, mapType, toggleMapType, setSearchQuery, s
         <AppBar position="static">
             <Toolbar style={{ flexDirection: 'column', alignItems: 'flex-start', width: '100%' }}>
                 {/* Map Header and Mode Toggle */}
-                <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center', marginTop: '15px', marginBottom: '15px' }}>
-                    <Typography variant="h6">Map Controls</Typography>
+                <div style={{
+                    display: 'flex',
+                    width: '100%',
+                    justifyContent: 'space-between',
+                    alignItems: isMobile ? 'flex-start' : 'center',
+                    flexDirection: isMobile ? 'column' : 'row',
+                    marginTop: '15px',
+                    marginBottom: '15px'
+                }}>
+                    <Typography variant="h6" style={{ marginBottom: isMobile ? '10px' : '0' }}>Map Controls</Typography>
                     {mode === 'directions' && (
-                        <FormControlLabel
-                            control={
-                                <Switch
-                                    checked={mapType === 'satellite'}
-                                    onChange={toggleMapType}
-                                    name="mapTypeSwitch"
-                                    color="default"
-                                />
-                            }
-                            label={`Map Type: ${mapType.charAt(0).toUpperCase() + mapType.slice(1)}`}
-                        />
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                            <Typography variant="body1" style={{ marginBottom: isMobile ? '10px' : '0' }}>
+                                Map Type: &emsp;
+                            </Typography>
+                            <FormControlLabel
+                                control={
+                                    <Switch
+                                        checked={mapType === 'satellite'}
+                                        onChange={toggleMapType}
+                                        name="mapTypeSwitch"
+                                        color="default"
+                                    />
+                                }
+                                label={`${mapType.charAt(0).toUpperCase() + mapType.slice(1)}`}
+                            />
+                        </div>
                     )}
-                    <Button color="inherit" onClick={handleMenuOpen}>Map Mode</Button>
-                    <Menu
-                        anchorEl={anchorEl}
-                        open={Boolean(anchorEl)}
-                        onClose={handleMenuClose}
-                    >
-                        <MenuItem onClick={() => handleMenuItemClick('place')}>Place</MenuItem>
-                        <MenuItem onClick={() => handleMenuItemClick('directions')}>Directions</MenuItem>
-                        <MenuItem onClick={() => handleMenuItemClick('view')}>View</MenuItem>
-                        <MenuItem onClick={() => handleMenuItemClick('streetview')}>Street View</MenuItem>
-                    </Menu>
+                    <>
+                        <Button color="inherit" onClick={handleMenuOpen}>Map Mode</Button>
+                        <Menu
+                            anchorEl={anchorEl}
+                            open={Boolean(anchorEl)}
+                            onClose={handleMenuClose}
+                        >
+                            <MenuItem onClick={() => handleMenuItemClick('place')}>Place</MenuItem>
+                            <MenuItem onClick={() => handleMenuItemClick('directions')}>Directions</MenuItem>
+                            <MenuItem onClick={() => handleMenuItemClick('view')}>View</MenuItem>
+                            <MenuItem onClick={() => handleMenuItemClick('streetview')}>Street View</MenuItem>
+                        </Menu>
+                    </>
                 </div>
 
                 {/* Search Bar */}
@@ -148,7 +167,7 @@ const GmapEmbededToolBar = ({ setMode, mapType, toggleMapType, setSearchQuery, s
                                 );
                             case 'directions':
                                 return (
-                                    <>
+                                    <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', width: '100%' }}>
                                         <TextField
                                             label="Origin"
                                             variant="standard"
@@ -160,7 +179,7 @@ const GmapEmbededToolBar = ({ setMode, mapType, toggleMapType, setSearchQuery, s
                                                     handleFindDirections();
                                                 }
                                             }}
-                                            style={{ flexGrow: 1, marginRight: '10px' }}
+                                            style={{ flexGrow: 1, marginRight: isMobile ? '0' : '10px', marginBottom: isMobile ? '10px' : '0', width: '100%' }}
                                         />
                                         <TextField
                                             label="Destination"
@@ -173,11 +192,26 @@ const GmapEmbededToolBar = ({ setMode, mapType, toggleMapType, setSearchQuery, s
                                                     handleFindDirections();
                                                 }
                                             }}
-                                            style={{ flexGrow: 1, marginRight: '10px' }}
+                                            style={{ flexGrow: 1, marginRight: isMobile ? '0' : '10px', marginBottom: isMobile ? '10px' : '0', width: '100%' }}
                                         />
-                                        <Button color="inherit" onClick={handleFindDirections}>Find Directions</Button>
-                                        <Button color="inherit" onClick={handleResetDirections}>Reset</Button>
-                                    </>
+                                        <div style={{ display: 'flex', flexDirection: isMobile ? 'row' : 'row', justifyContent: isMobile ? 'space-between' : 'flex-end', width: '100%' }}>
+                                            <>
+                                                <Button color="inherit" onClick={handleResetDirections} style={{ marginRight: '10px' }}>Reset</Button>
+                                                <Button color="inherit" onClick={handleFindDirections}>Find Directions</Button>
+                                            </>
+                                            {/* {isMobile ? (
+                                                <>
+                                                    <Button color="inherit" onClick={handleResetDirections} style={{ marginRight: '10px' }}>Reset</Button>
+                                                    <Button color="inherit" onClick={handleFindDirections}>Find Directions</Button>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <Button color="inherit" onClick={handleFindDirections} style={{ marginRight: '10px' }}>Find Directions</Button>
+                                                    <Button color="inherit" onClick={handleResetDirections}>Reset</Button>
+                                                </>
+                                            )} */}
+                                        </div>
+                                    </div>
                                 );
                             default:
                                 return null;
