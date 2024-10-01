@@ -9,15 +9,28 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useSidePanel } from '../contexts/SidePanelContext';
 import ThemeSwitcher from './ThemeSwitcher';
 
+// Utils
+import { logEvent } from '../utils/Ganalytics';
+
 const SidePanel = () => {
     const { isSidePanelOpen, closeSidePanel } = useSidePanel();
 
+    const handleLinkClick = (label) => {
+        closeSidePanel();
+        logEvent('SidePanel', 'Navigation Click', label);
+    };
+
+    const handleCloseButtonClick = () => {
+        closeSidePanel();
+        logEvent('SidePanel', 'Close Button Click', 'Close Side Panel');
+    };
+
     return (
-        <Drawer anchor="left" open={isSidePanelOpen} onClose={closeSidePanel}>
+        <Drawer anchor="left" open={isSidePanelOpen} onClose={handleCloseButtonClick}>
             <div className="side-panel">
                 <div className="side-panel-header">
                     <ThemeSwitcher /> &emsp;
-                    <IconButton onClick={closeSidePanel} className="close-button">
+                    <IconButton onClick={handleCloseButtonClick} className="close-button">
                         <CloseIcon />
                     </IconButton>
                 </div>
@@ -26,7 +39,7 @@ const SidePanel = () => {
                         button
                         component={Link}
                         to="/"
-                        onClick={closeSidePanel}
+                        onClick={() => handleLinkClick('Home')}
                         sx={{
                             color: 'text.primary',
                             '&:hover': {
@@ -43,7 +56,7 @@ const SidePanel = () => {
                         button
                         component={Link}
                         to="/about"
-                        onClick={closeSidePanel}
+                        onClick={() => handleLinkClick('About')}
                         sx={{
                             color: 'text.primary',
                             '&:hover': {
@@ -60,7 +73,7 @@ const SidePanel = () => {
                         button
                         component={Link}
                         to="/services"
-                        onClick={closeSidePanel}
+                        onClick={() => handleLinkClick('Services')}
                         sx={{
                             color: 'text.primary',
                             '&:hover': {
@@ -77,7 +90,7 @@ const SidePanel = () => {
                         button
                         component={Link}
                         to="/reviews"
-                        onClick={closeSidePanel}
+                        onClick={() => handleLinkClick('Reviews')}
                         sx={{
                             color: 'text.primary',
                             '&:hover': {
@@ -94,7 +107,7 @@ const SidePanel = () => {
                         button
                         component={Link}
                         to="/contact"
-                        onClick={closeSidePanel}
+                        onClick={() => handleLinkClick('Contact')}
                         sx={{
                             color: 'text.primary',
                             '&:hover': {
@@ -112,7 +125,7 @@ const SidePanel = () => {
                             button
                             component={Link}
                             to="/sandbox"
-                            onClick={closeSidePanel}
+                            onClick={() => handleLinkClick('Sandbox')}
                             sx={{
                                 color: 'text.primary',
                                 '&:hover': {

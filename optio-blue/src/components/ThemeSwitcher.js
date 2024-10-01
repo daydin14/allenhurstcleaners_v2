@@ -7,14 +7,22 @@ import Button from '@mui/material/Button';
 // Context
 import { useThemeContext } from '../contexts/ThemeContext';
 
+// Utils
+import { logEvent } from '../utils/Ganalytics';
+
 const ThemeSwitcher = () => {
     const { themeMode, toggleTheme } = useThemeContext();
+    const handleToggleTheme = () => {
+        toggleTheme();
+        // Google Analytics
+        logEvent('ThemeSwitcher', 'Toggle Theme', themeMode === 'light' ? 'Dark Mode' : 'Light Mode');
+    };
 
     return (
         <>
             <Button
                 variant="contained"
-                onClick={toggleTheme}
+                onClick={handleToggleTheme}
                 sx={{
                     backgroundColor: (theme) =>
                         theme.palette.mode === 'light'

@@ -20,6 +20,16 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/3dfcf8e7-8c0b-456c-aca6-1ecfb599de2b/deploy-status)](https://app.netlify.com/sites/allenhurstcleaners/deploys)
 
+## Table of Contents
+
+- [Getting Started](#getting-started)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Google Integrations](#goolge-integrations)
+- [Screenshots](#screenshots)
+- [Environment Variables](#environment-variables)
+- [Deployment on GitHub Pages](#deployment-on-github-pages)
+
 ## Getting Started
 
 To get started with the project, follow these steps:
@@ -51,6 +61,7 @@ To get started with the project, follow these steps:
 
 - **Single-Page Application**: Built using React, providing a smooth and responsive user experience.
 - **Google Maps Integration**: Utilizes the Google Maps API to display business information and location.
+- **Google Analytics Integration**: Tracks and analyzes user interactions to provide insights into user behavior and application performance.
 - **Material UI**: Styled using Material UI components for a modern and consistent design.
 
 ## Technologies Used
@@ -77,19 +88,36 @@ To get started with the project, follow these steps:
 - **React**: A JavaScript library for building user interfaces.
 - **React Router**: A library for routing in React applications.
 - **Google Maps API**: Used to display maps and business information.
+- **Google Analytics Integration**: Tracks and analyzes user interactions for beahvior insights and application performance.
 - **Material UI (MUI)**: A popular React UI framework for building responsive and visually appealing user interfaces.
 
-## Google Maps API Integration
+## Google Integrations
 
-The application integrates with the Google Maps API to provide detailed information about the business location. This includes displaying the business address, phone number, hours of operation, and more. The Google Maps API is wrapped in Material UI components to ensure a seamless and visually appealing user experience.
+### Google Maps API Platform Integration
+
+The application integrates with the Google Maps API Platform to provide detailed information about the business location. This includes displaying the business address, phone number, hours of operation, and more. The Google Maps API is wrapped in Material UI components to ensure a seamless and visually appealing user experience.
 
 For more information on the Google Maps API, visit the [Google Maps API documentation](https://developers.google.com/maps/documentation).
 
-- Google Maps APIs (Google Libraries) used within the application
-  - places
-  - maps
-  - marker
-  - embeded maps
+- Google Maps APIs _(Google Libraries)_ used within the application
+  - _places_
+  - _maps_
+  - _marker_
+  - _embeded maps_
+
+Using `@react-google-maps/api` npm package `[Version 2.19.3]`
+
+For more information on the Google Maps API NPM Package/Library, visit [NPM Documentation](https://www.npmjs.com/package/@react-google-maps/api)
+
+### Google Analytics Integration
+
+The application integrates with Google Analytics to track and analyze user interactions. This helps in understanding user behavior, measuring the effectiveness of marketing campaigns, and making data-driven decisions to improve the application. The integration is implemented using the `react-ga4` library, which provides a simple interface for sending data to Google Analytics.
+
+For more information on Google Analytics, visit [Google Analytics documentation](https://developers.google.com/analytics)
+
+Using `@react-ga4` npm package `[Version 2.1.0]`
+
+For more information on the Google Analytics NPM Package/Library, visit [NPM Documentation](https://www.npmjs.com/package/react-ga4)
 
 ## Screenshots
 

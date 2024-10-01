@@ -4,19 +4,21 @@ import React, { useState } from 'react';
 // MUI Components
 import { Paper, Typography, TextField, Button, Box } from '@mui/material';
 
+// Utils
+import { logEvent } from '../utils/Ganalytics';
+
 const ContactForm = () => {
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Form submitted:', { name, message }); // Log form submission
         const mailtoLink = `mailto:allenhurstcleaners@gmail.com?subject=Website Contact Form Submission from ${name}&body=${encodeURIComponent(message)}`;
+        logEvent('ContactForm', 'Submit', `Name: ${name}, Message: ${message.length} characters`);
 
         // Clear the form fields
         setName('');
         setMessage('');
-        console.log('State after clearing:', { name, message }); // Log state after clearing
 
         // Delay navigation to allow state updates to take effect
         setTimeout(() => {

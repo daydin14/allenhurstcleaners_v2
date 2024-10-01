@@ -10,6 +10,9 @@ import { AppBar, Toolbar, Button, Typography, Menu, MenuItem, Switch, FormContro
 // Mui Icons
 import ClearIcon from '@mui/icons-material/Clear';
 
+// Utils
+import { logEvent } from '../../utils/Ganalytics';
+
 const GmapEmbededToolBar = ({ setMode, mapType, toggleMapType, setSearchQuery, setOrigin, setDestination, mode }) => {
     const isMobile = useIsMobile();
     const [searchInput, setSearchInput] = useState('');
@@ -25,6 +28,7 @@ const GmapEmbededToolBar = ({ setMode, mapType, toggleMapType, setSearchQuery, s
         const query = searchInput.trim() === '' ? 'Allenhurst Cleaners' : searchInput;
         setSearchQuery(query);
         setMode('search');
+        logEvent('GmapEmbededToolBar', 'Search Submit', `Query: ${query}`);
     };
     const handleKeyPress = (event) => {
         if (event.key === 'Enter') {
@@ -33,26 +37,32 @@ const GmapEmbededToolBar = ({ setMode, mapType, toggleMapType, setSearchQuery, s
     };
     const handleClearSearch = () => {
         setSearchInput('');
+        logEvent('GmapEmbededToolBar', 'Clear Search', 'Search input cleared');
     };
 
     // Menu Handlers
     const handleMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
+        logEvent('GmapEmbededToolBar', 'Menu Open', 'Menu opened');
     };
     const handleMenuClose = () => {
         setAnchorEl(null);
+        logEvent('GmapEmbededToolBar', 'Menu Close', 'Menu closed');
     };
     const handleMenuItemClick = (mode) => {
         setMode(mode);
         handleMenuClose();
+        logEvent('GmapEmbededToolBar', 'Menu Item Click', `Mode: ${mode}`);
     };
 
     // Directions Handlers
     const handleOriginChange = (event) => {
         setOriginInput(event.target.value);
+        logEvent('GmapEmbededToolBar', 'Origin Change', `Origin: ${event.target.value}`);
     };
     const handleDestinationChange = (event) => {
         setDestinationInput(event.target.value);
+        logEvent('GmapEmbededToolBar', 'Destination Change', `Destination: ${event.target.value}`);
     };
     const handleFindDirections = () => {
         const origin = originInput.trim() === '' ? 'current+location' : originInput;
@@ -60,6 +70,7 @@ const GmapEmbededToolBar = ({ setMode, mapType, toggleMapType, setSearchQuery, s
         setOrigin(origin);
         setDestination(destination);
         setMode('directions');
+        logEvent('GmapEmbededToolBar', 'Find Directions', `Origin: ${origin}, Destination: ${destination}`);
     };
     const handleResetDirections = () => {
         setOriginInput('');
@@ -68,6 +79,7 @@ const GmapEmbededToolBar = ({ setMode, mapType, toggleMapType, setSearchQuery, s
         setDestination('Allenhurst+Cleaners');
         setMode('directions');
         setSearchInput('');
+        logEvent('GmapEmbededToolBar', 'Reset Directions', 'Directions reset');
     };
 
     return (

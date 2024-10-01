@@ -1,5 +1,9 @@
+// Dependencies
 import React, { createContext, useState, useMemo, useContext } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+// Utils
+import { logEvent } from '../utils/Ganalytics';
 
 const ThemeContext = createContext();
 
@@ -9,7 +13,11 @@ export const ThemeContextProvider = ({ children }) => {
     const [themeMode, setThemeMode] = useState('light');
 
     const toggleTheme = () => {
-        setThemeMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+        setThemeMode((prevMode) => {
+            const newMode = prevMode === 'light' ? 'dark' : 'light';
+            logEvent('ThemeContext', 'Toggle Theme', newMode === 'light' ? 'Light Mode' : 'Dark Mode');
+            return newMode;
+        });
     };
 
     const theme = useMemo(

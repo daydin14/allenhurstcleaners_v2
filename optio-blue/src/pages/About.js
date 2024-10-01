@@ -1,11 +1,14 @@
 // Dependencies
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // MUI Components
 import { Container, Paper, Typography, Grid2, Box } from '@mui/material';
 
 // Components
 import Tile from '../components/Tile';
+
+// Utils
+import { logPageView, logTiming } from '../utils/Ganalytics';
 
 const tilesData = [
     {
@@ -56,6 +59,16 @@ const tilesData = [
 ];
 
 const About = () => {
+    useEffect(() => {
+        logPageView();
+        const startTime = performance.now();
+        setTimeout(() => {
+            const endTime = performance.now();
+            const duration = endTime - startTime;
+            logTiming('User Engagement', 'Time on About Page', duration, 'About Page');
+        }, 1000);
+    }, []);
+
     return (
         <>
             <Container>
