@@ -12,6 +12,9 @@ import usePlaceDetails from '../../hooks/usePlaceDetails';
 // Components
 import Gtooltip from './Gtooltip';
 
+// Utils
+import { logEvent } from '../../utils/Ganalytics';
+
 // Map Styles
 const containerStyle = {
     width: '100%',
@@ -52,7 +55,7 @@ const Gmap = ({ id, onLoad }) => {
     const handleMapLoad = useCallback((map) => {
         mapRef.current = map;
         setMapLoaded(true);
-        console.log('Map loaded:', map);
+        logEvent('Gmap', 'Map Load', 'Map successfully loaded');
 
         if (onLoad) {
             onLoad(map);
@@ -62,22 +65,23 @@ const Gmap = ({ id, onLoad }) => {
     // Add marker when place details are available
     useEffect(() => {
         if (mapRef.current && place) {
-            console.log('Adding marker with place details:', place);
+            logEvent('Gmap', 'Add Marker', `Marker added for place: ${place.name}`);
 
             if (window.google && window.google.maps && window.google.maps.marker) {
                 const { AdvancedMarkerElement } = window.google.maps.marker.AdvancedMarkerElement;
                 try {
+                    let marker;
                     if (AdvancedMarkerElement) {
-                        const marker = new AdvancedMarkerElement({
+                        marker = new AdvancedMarkerElement({
                             map: mapRef.current,
                             position: center,
                             title: 'Allenhurst Cleaners',
                             mapId,
                         });
-                        console.log('AdvancedMarker added:', marker);
+                        logEvent('Gmap', 'Advanced Marker Added', `Marker added for place: ${place.name}`);
                     } else {
                         console.warn('AdvancedMarkerElement is not available');
-                        const marker = new window.google.maps.Marker({
+                        marker = new window.google.maps.Marker({
                             position: center,
                             map: mapRef.current,
                             draggable: true,
@@ -95,6 +99,7 @@ const Gmap = ({ id, onLoad }) => {
                             },
                         });
                         console.log('Deprecated Marker added:', marker);
+                        logEvent('Gmap', 'Deprecated Marker Added', `Marker added for place: ${place.name}`);
 
                         // Store the marker reference
                         markerRef.current = marker;
@@ -116,8 +121,10 @@ const Gmap = ({ id, onLoad }) => {
                                 root.render(<Gtooltip place={place} />);
                                 infoWindow.setContent(infoWindowDiv);
                                 infoWindow.open(mapRef.current, marker);
+                                logEvent('Gmap', 'InfoWindow Opened', `InfoWindow opened for place: ${place.name}`);
                             } else {
                                 infoWindow.close();
+                                logEvent('Gmap', 'InfoWindow Closed', `InfoWindow closed for place: ${place.name}`);
                                 // Toggle bounce animation
                                 marker.setAnimation(window.google.maps.Animation.BOUNCE);
                                 setTimeout(() => {
@@ -134,32 +141,14 @@ const Gmap = ({ id, onLoad }) => {
             } else {
                 console.error('Google Maps API is not fully loaded');
             }
-        } else {
-            if (!mapRef.current) {
-                console.log('Map reference is not available yet');
-            }
-            if (!place) {
-                console.log('Place details are not available yet');
-            }
         }
-    }, [place, isLoaded]);
+    }, [place, isLoaded, mapLoaded]);
 
     // CleanUp & Unmount the map
     const onUnmount = useCallback((map) => {
         mapRef.current = null;
         setMapLoaded(false);
-        // console.log('Map unmounted:', map);
     }, []);
-
-    // Check if map is loaded and mapRef is set
-    useEffect(() => {
-        // console.log('useEffect called, isLoaded:', isLoaded, 'mapLoaded:', mapLoaded);
-        if (isLoaded && mapLoaded && mapRef.current) {
-            console.log('Map is loaded and mapRef is set');
-        } else {
-            console.log('Map is not loaded or mapRef is not set');
-        }
-    }, [isLoaded, mapLoaded]);
 
     if (loadError) {
         return <Typography color="error">Error loading Google Maps API</Typography>;

@@ -11,6 +11,9 @@ import GmapEmbeded from '../components/GoogleMaps/GmapEmbeded';
 import GmapEmbededToolBar from '../components/GoogleMaps/GmapEmbededToolBar';
 import ContactForm from '../components/ContactForm';
 
+// Utils
+import { logPageView, logTiming, logEvent } from '../utils/Ganalytics';
+
 const Contact = () => {
     // Google Maps API Map (not embeded) & Details
     const [map, setMap] = useState(null);
@@ -18,6 +21,7 @@ const Contact = () => {
     const handleMapLoad = useCallback((mapInstance) => {
         mapRef.current = mapInstance;
         setMap(mapInstance);
+        logEvent('Contact', 'Map Loaded', 'Google Maps');
     }, []);
 
     // Google Maps Embeded Map
@@ -28,24 +32,35 @@ const Contact = () => {
     const [destination, setDestination] = useState('');
     const toggleMapType = () => {
         setMapType((prevType) => (prevType === 'roadmap' ? 'satellite' : 'roadmap'));
+        logEvent('Contact', 'Toggle Map Type', mapType === 'roadmap' ? 'Satellite' : 'Roadmap');
     };
 
     // Get user's geolocation coordinates and set as origin for directions map (embeded) on page load
     useEffect(() => {
+        // Google Analytics
+        logPageView();
+        const startTime = performance.now();
+        setTimeout(() => {
+            const endTime = performance.now();
+            const duration = endTime - startTime;
+            logTiming('User Engagement', 'Time on Contact Page', duration, 'Contact Page');
+        }, 1000);
+
         if (window.navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
                     const { latitude, longitude } = position.coords;
-                    console.log('Geolocation coordinates:', latitude, longitude);
                     const trimmedLatitude = String(latitude).trim();
                     const trimmedLongitude = String(longitude).trim();
                     setOrigin(`${trimmedLatitude},${trimmedLongitude}`);
                     if (mapRef.current) {
                         mapRef.current.setCenter({ lat: parseFloat(trimmedLatitude), lng: parseFloat(trimmedLongitude) });
                     }
+                    logEvent('Contact', 'Geolocation Success', `Lat: ${trimmedLatitude}, Lng: ${trimmedLongitude}`);
                 },
                 (err) => {
                     console.error('Geolocation error:', err);
+                    logEvent('Contact', 'Geolocation Error', err.message);
                 }
             );
         } else {
