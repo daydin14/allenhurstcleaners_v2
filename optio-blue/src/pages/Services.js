@@ -10,12 +10,6 @@ import { Container, Paper, Typography, Button, Switch, FormControlLabel, Box, To
 // Utils
 import { logPageView, logTiming, logEvent } from '../utils/Ganalytics';
 
-// Hooks
-import useIsMobile from '../hooks/useIsMobile';
-
-// MUI Components
-import { Container, Paper, Typography, Button, Switch, FormControlLabel, Box, Toolbar, Tab, Tabs } from '@mui/material';
-
 const Services = () => {
     const [isListView, setIsListView] = useState(false);
     const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
@@ -53,7 +47,7 @@ const Services = () => {
             const duration = endTime - startTime;
             logTiming('User Engagement', 'Time on Services Page', duration, 'Services Page');
         }, 1000);
-    };
+    }, []);
 
     const serviceDetails = [
         {
