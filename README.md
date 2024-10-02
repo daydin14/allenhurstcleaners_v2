@@ -20,6 +20,15 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/3dfcf8e7-8c0b-456c-aca6-1ecfb599de2b/deploy-status)](https://app.netlify.com/sites/allenhurstcleaners/deploys)
 
+- Duel Deployment Links:
+  - GH-Pages: https://daydin14.github.io/allenhurstcleaners_v2/
+  - Netlify: https://allenhurstcleaners.netlify.app/
+
+```
+   GH-Pages deployment link is my DEVELOPMENT link for experimental features.
+   Netlify deployment link is my PRODUCTION version.
+```
+
 ## Table of Contents
 
 - [Getting Started](#getting-started)

@@ -1,8 +1,29 @@
 # Allenhurst Cleaners v2
 
+This web application integrates with the Google Maps API Platform to provide detailed business information, including address, phone number, and hours of operation. Built with React and Material UI, it offers a responsive and visually appealing user interface. Embedded with Google Analytics for user interaction statistics. This project also includes features like environment variable management for secure API key handling and duel deployment with both GitHub Pages and Netlify.
+
+### Version History Below :
+
+## Table of Contents
+
+- [0.9.0 - 2024-10-01](#090---2024-10-01)
+- [0.8.0 - 2024-10-01](#080---2024-10-01)
+- [0.7.0 - 2024-09-27](#070---2024-09-27)
+- [Netlify Deployment Testing](#netlify-deployment-testing---updated-deploys-from-netlify-branch)
+- [0.6.0 - 2024-09-27](#060---2024-09-27)
+- [0.5.0 - 2024-09-25](#050---2024-09-25)
+- [0.4.0 - 2024-09-23](#040---2024-09-23)
+- [0.3.0 - 2024-09-12](#030---2024-09-12)
+- [0.2.0 - 2024-09-11](#020---2024-09-11)
+- [0.1.0 - 2024-09-10](#010---2024-09-10)
+
 ## ChangeLog
 
-### [0.9.0] - 2024-10-0X
+- Update Readmes
+
+---
+
+### [0.9.0] - 2024-10-01
 
 - `Pull Request` : Updated how Google Analytics Tag is Embeded
   - Include Google Analytics Integration into Repo Readme
