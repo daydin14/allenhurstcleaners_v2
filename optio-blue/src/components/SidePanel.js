@@ -86,23 +86,7 @@ const SidePanel = () => {
                     >
                         <ListItemText primary="Services" />
                     </ListItem>
-                    <ListItem
-                        button
-                        component={Link}
-                        to="/reviews"
-                        onClick={() => handleLinkClick('Reviews')}
-                        sx={{
-                            color: 'text.primary',
-                            '&:hover': {
-                                backgroundColor: (theme) =>
-                                    theme.palette.mode === 'light'
-                                        ? theme.palette.grey[300]
-                                        : theme.palette.grey[700],
-                            },
-                        }}
-                    >
-                        <ListItemText primary="Reviews" />
-                    </ListItem>
+                    {/* Contact */}
                     <ListItem
                         button
                         component={Link}
@@ -120,7 +104,26 @@ const SidePanel = () => {
                     >
                         <ListItemText primary="Contact" />
                     </ListItem>
-                    {process.env.NODE_ENV === 'development' && (
+                    {/* {process.env.NODE_ENV === 'development' && (
+                        <>
+                            <ListItem
+                                button
+                                component={Link}
+                                to="/reviews"
+                                onClick={() => handleLinkClick('Reviews')}
+                                sx={{
+                                    color: 'text.primary',
+                                    textAlign: 'center',
+                                    '&:hover': {
+                                        backgroundColor: (theme) =>
+                                            theme.palette.mode === 'light'
+                                                ? theme.palette.grey[300]
+                                                : theme.palette.grey[700],
+                                    },
+                                }}
+                            >
+                                <ListItemText primary="Reviews" />
+                            </ListItem>
                         <ListItem
                             button
                             component={Link}
@@ -128,6 +131,7 @@ const SidePanel = () => {
                             onClick={() => handleLinkClick('Sandbox')}
                             sx={{
                                 color: 'text.primary',
+                                    textAlign: 'center',
                                 '&:hover': {
                                     backgroundColor: (theme) =>
                                         theme.palette.mode === 'light'
@@ -138,7 +142,8 @@ const SidePanel = () => {
                         >
                             <ListItemText primary="Sandbox" />
                         </ListItem>
-                    )}
+                        </>
+                    )} */}
                 </List>
             </div>
         </Drawer>
