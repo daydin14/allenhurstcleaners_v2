@@ -1,5 +1,5 @@
 // Dependencies
-import React, { useEffect } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 
 // MUI Components
 import { Container, Paper, Typography, Box } from '@mui/material';
@@ -17,6 +17,16 @@ import { logPageView, logTiming } from '../utils/Ganalytics';
 
 const Home = () => {
     // Google Analytics
+    useEffect(() => {
+        logPageView();
+        const startTime = performance.now();
+        setTimeout(() => {
+            const endTime = performance.now();
+            const duration = endTime - startTime;
+            logTiming('User Engagement', 'Time on Home Page', duration, 'Home Page');
+        }, 1000);
+    }, []);
+
     useEffect(() => {
         logPageView();
         const startTime = performance.now();
@@ -50,7 +60,12 @@ const Home = () => {
                 </Paper>
 
                 {/* Google Map Component */}
-                <FreeGmap />
+                <Box my={2}>
+                    <Gmap id="map-home" onLoad={handleMapLoad} />
+                </Box>
+                {map && (
+                    console.log("map-home")
+                )}
 
                 {/* Quick Info */}
                 <Paper elevation={3} sx={{ padding: 2 }}>

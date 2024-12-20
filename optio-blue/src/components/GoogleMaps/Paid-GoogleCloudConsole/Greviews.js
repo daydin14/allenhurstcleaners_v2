@@ -10,6 +10,9 @@ import usePlaceDetails from '../../../hooks/usePlaceDetails';
 // Utils
 import { logEvent } from '../../../utils/Ganalytics';
 
+// Utils
+import { logEvent } from '../../utils/Ganalytics';
+
 const Greviews = ({ map, placeId }) => {
     const { place, status, error } = usePlaceDetails(map, placeId);
     const theme = useTheme();

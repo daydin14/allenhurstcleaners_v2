@@ -19,24 +19,13 @@ import { logEvent } from '../utils/Ganalytics';
 
 const SidePanel = () => {
     const { isSidePanelOpen, closeSidePanel } = useSidePanel();
-    const isMobile = useIsMobile();
-
-    const handleLinkClick = (label) => {
-        closeSidePanel();
-        logEvent('SidePanel', 'Navigation Click', label);
-    };
-
-    const handleCloseButtonClick = () => {
-        closeSidePanel();
-        logEvent('SidePanel', 'Close Button Click', 'Close Side Panel');
-    };
 
     return (
         <Drawer anchor="left" open={isSidePanelOpen} onClose={handleCloseButtonClick}>
             <div className="side-panel">
-                <div className={isMobile ? "side-panel-header-mobile" : "side-panel-header"}>
-                    {!isMobile && <ThemeSwitcher />} &emsp;
-                    <IconButton onClick={handleCloseButtonClick} className="close-button">
+                <div className="side-panel-header">
+                    <ThemeSwitcher /> &emsp;
+                    <IconButton onClick={closeSidePanel} className="close-button">
                         <CloseIcon />
                     </IconButton>
                 </div>
@@ -102,8 +91,8 @@ const SidePanel = () => {
                     <ListItem
                         button
                         component={Link}
-                        to="/contact"
-                        onClick={() => handleLinkClick('Contact')}
+                        to="/reviews"
+                        onClick={closeSidePanel}
                         sx={{
                             color: 'text.primary',
                             textAlign: 'center',
@@ -115,48 +104,25 @@ const SidePanel = () => {
                             },
                         }}
                     >
+                        <ListItemText primary="Reviews" />
+                    </ListItem>
+                    <ListItem
+                        button
+                        component={Link}
+                        to="/contact"
+                        onClick={closeSidePanel}
+                        sx={{
+                            color: 'text.primary',
+                            '&:hover': {
+                                backgroundColor: (theme) =>
+                                    theme.palette.mode === 'light'
+                                        ? theme.palette.grey[300]
+                                        : theme.palette.grey[700],
+                            },
+                        }}
+                    >
                         <ListItemText primary="Contact" />
                     </ListItem>
-                    {/* {process.env.NODE_ENV === 'development' && (
-                        <>
-                            <ListItem
-                                button
-                                component={Link}
-                                to="/reviews"
-                                onClick={() => handleLinkClick('Reviews')}
-                                sx={{
-                                    color: 'text.primary',
-                                    textAlign: 'center',
-                                    '&:hover': {
-                                        backgroundColor: (theme) =>
-                                            theme.palette.mode === 'light'
-                                                ? theme.palette.grey[300]
-                                                : theme.palette.grey[700],
-                                    },
-                                }}
-                            >
-                                <ListItemText primary="Reviews" />
-                            </ListItem>
-                            <ListItem
-                                button
-                                component={Link}
-                                to="/sandbox"
-                                onClick={() => handleLinkClick('Sandbox')}
-                                sx={{
-                                    color: 'text.primary',
-                                    textAlign: 'center',
-                                    '&:hover': {
-                                        backgroundColor: (theme) =>
-                                            theme.palette.mode === 'light'
-                                                ? theme.palette.grey[300]
-                                                : theme.palette.grey[700],
-                                    },
-                                }}
-                            >
-                                <ListItemText primary="Sandbox" />
-                            </ListItem>
-                        </>
-                    )} */}
                 </List>
             </div>
         </Drawer>

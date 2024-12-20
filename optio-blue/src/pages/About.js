@@ -5,13 +5,46 @@ import React, { useEffect } from 'react';
 import { Container, Paper, Typography, Grid2, Box } from '@mui/material';
 
 // Components
-import Tile from '../components/Tile';
+import ServiceSquare from '../components/ServiceSquare';
 
-// Contstants
-import AboutTileDetails from '../constants/AboutTileDetails';
-
-// Utils
-import { logPageView, logTiming } from '../utils/Ganalytics';
+const serviceSquareData = [
+    {
+        title: 'Dry Cleaning',
+        description: 'Dry cleaning is a process that utilizes organic solvents other than water to clean clothes, bedding, upholstery and other types of fabrics.',
+    },
+    {
+        title: 'Laundry',
+        description: 'Laundered clothes and linens. Machine wash and press.',
+    },
+    {
+        title: 'Alterations',
+        description: 'Tailored clothes, suited to an individual. Adjusting clothes to fit a particular person\'s unique body shape. Fixed rips and reinforced stitching to almost all materials.',
+    },
+    {
+        title: 'Pressing',
+        description: 'Removes wrinkles by steaming and ironing garments. Steaming is a blowing system whereas pressing rubs an iron across.',
+    },
+    {
+        title: 'Leather',
+        description: 'Natural or synthetic substance that helps loosen and remove accumulated dirt and grime on leather-based material.',
+    },
+    {
+        title: 'Fur',
+        description: 'Process that adds to the longevity of your fur, makes it soft and supple, conditions the leather, frees the fur of dust particles that rob your fur of its sheen.',
+    },
+    {
+        title: 'Bridal',
+        description: 'Wedding dress preservation where a series of special cleaning and packaging techniques are used to ensure bridal gown styles are retained over time.',
+    },
+    {
+        title: 'Drapes',
+        description: 'Drapery and textile for decorative purposes can be dry cleaned and pressed to bring out the original color and liven rooms once again.',
+    },
+    {
+        title: 'Table & Bedding',
+        description: 'Sheets and comforters process in a special cycle that make comforters look brand new and the sheets crisp and clean.',
+    },
+];
 
 const About = () => {
     useEffect(() => {
@@ -28,10 +61,6 @@ const About = () => {
         <>
             <Container>
                 <>
-                    {/* Header */}
-                    <Typography variant="h4" sx={{ padding: 2, marginTop: 2, marginBottom: 2, textAlign: 'center' }}>
-                        Who We Are:
-                    </Typography>
                     <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
                         <Box sx={{ display: 'flex', justifyContent: 'center', marginBottom: 2 }}>
                             <Typography variant="body1" sx={{ marginBottom: 2 }}>
@@ -48,9 +77,6 @@ const About = () => {
 
                 {/* What We Do: Section */}
                 <>
-                    <Typography variant="h4" sx={{ padding: 2, marginTop: 2, marginBottom: 2, textAlign: 'center' }}>
-                        What We Do:
-                    </Typography>
                     <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
                         <Box sx={{ display: 'flex', justifyContent: 'center', marginBottom: 2 }}>
                             <Typography variant="body1" sx={{ marginBottom: 2 }}>
@@ -82,20 +108,17 @@ const About = () => {
 
                 {/* What Can We Provide: Section */}
                 <>
-                    <Typography variant="h4" sx={{ padding: 2, marginTop: 2, marginBottom: 2, textAlign: 'center' }}>
-                        What Can We Provide:
-                    </Typography>
                     <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
-                        <Grid2 container spacing={2} display={'flex'} justifyContent={'center'} alignContent={'center'}>
-                            {AboutTileDetails.map((tile, index) => (
-                                <Grid2 item key={index} xs={6} sm={4} md={3} lg={3} xl={3}>
-                                    <Tile
-                                        frontText={tile.frontText}
-                                        backText={tile.backText}
-                                        backgroundImage={tile.backgroundImage}
-                                        reverse={index % 2 === 1} // Apply reverse class to every other tile
-                                    />
-                                </Grid2>
+                        <Typography variant="h4" gutterBottom align='center'>
+                            What Can We Provide:
+                        </Typography>
+                    </Paper>
+                    <Box sx={{ flexGrow: 1 }}>
+                        <Grid container spacing={2}>
+                            {serviceSquareData.map((service, index) => (
+                                <Grid item xs={12} sm={6} md={4} key={index}>
+                                    <ServiceSquare title={service.title} description={service.description} />
+                                </Grid>
                             ))}
                         </Grid2>
                     </Paper>

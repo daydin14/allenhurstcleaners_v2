@@ -18,12 +18,6 @@ const AppRoutes = () => {
                 <Route path="/about" element={<About />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/contact" element={<Contact />} />
-                {process.env.NODE_ENV === 'development' && (
-                    <>
-                        <Route path="/reviews" element={<Reviews />} />
-                        <Route path="/sandbox" element={<Sandbox />} />
-                    </>
-                )}
             </Routes>
         </>
     );

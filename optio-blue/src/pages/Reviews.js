@@ -11,6 +11,9 @@ import Greviews from '../components/GoogleMaps/Paid-GoogleCloudConsole/Greviews'
 // Utils
 import { logPageView, logTiming, logEvent } from '../utils/Ganalytics';
 
+// Utils
+import { logPageView, logTiming, logEvent } from '../utils/Ganalytics';
+
 const Reviews = () => {
     const [map, setMap] = useState(null);
     const mapRef = useRef(null);

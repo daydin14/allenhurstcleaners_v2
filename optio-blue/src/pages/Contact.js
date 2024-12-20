@@ -1,71 +1,64 @@
 // Dependencies
-import React, { useEffect } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 
 // MUI Components
-import { Box, Container, Paper, Typography, Link } from '@mui/material';
-
-// Constants
-import HoursOfOperation from '../constants/HoursOfOperation';
-import ContactDetails from '../constants/ContactDetails';
+import { Container, Paper, Typography, Box } from '@mui/material';
 
 // Components
-import ContactForm from '../components/ContactForm';
-
-// Utils
-import { logPageView, logTiming } from '../utils/Ganalytics';
-
-// Hooks
-import useIsMobile from '../hooks/useIsMobile';
+import Gmap from '../components/GoogleMaps/Gmap';
+import Gdetails from '../components/GoogleMaps/Gdetails';
 
 const Contact = () => {
-    const isMobile = useIsMobile();
+    const [map, setMap] = useState(null);
+    const mapRef = useRef(null);
 
-    // Google Analytics
-    useEffect(() => {
-        logPageView();
-        const startTime = performance.now();
-        setTimeout(() => {
-            const endTime = performance.now();
-            const duration = endTime - startTime;
-            logTiming('User Engagement', 'Time on Contact Page', duration, 'Contact Page');
-        }, 1000);
+    const handleMapLoad = useCallback((mapInstance) => {
+        mapRef.current = mapInstance;
+        setMap(mapInstance);
     }, []);
 
     return (
         <>
             <Container>
-                {/* Header */}
-                <Typography variant="h4" sx={{ padding: 2, marginTop: 2, marginBottom: 2, textAlign: 'center' }}>
-                    Contact Us!
-                </Typography>
-
-                {/* Contact Details */}
-                <Paper elevation={3} sx={{ padding: 3, marginBottom: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                    <Typography variant="h4" sx={{ textDecoration: 'underline' }}>Allenhurst Cleaners</Typography>
-                    <Typography variant={isMobile ? 'body1' : 'h4'}>Address: {ContactDetails.address}</Typography>
-                    <Typography variant={isMobile ? 'body1' : 'h4'}>Phone: <Link href={`tel:${ContactDetails.phone}`}>{ContactDetails.phone}</Link></Typography>
-                    <Typography variant={isMobile ? 'body1' : 'h4'}>Email: <Link href={`mailto:${ContactDetails.email}`}>{ContactDetails.email}</Link></Typography>
+                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2, textAlign: 'center' }}>
+                    <Typography variant="h4" mt={4}>
+                        Contact Us!
+                    </Typography>
+                </Paper>
+                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
+                    {map && (
+                        <Box mt={2}>
+                            <Gdetails map={map} placeId={process.env.REACT_APP_GOOGLE_MAPS_PLACE_ID} />
+                        </Box>
+                    )}
+                    <Box id="map-contact">
+                        <Gmap onLoad={handleMapLoad} />
+                    </Box>
                 </Paper>
 
-                {/* Hours of Operation */}
-                <Typography variant="h6" sx={{ textAlign: 'center' }}>
-                    Hours of Operation:
-                </Typography>
-                {HoursOfOperation.map((day, index) => (
-                    <Box key={index} sx={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', marginBottom: 2, padding: 1 }}>
-                        <Typography sx={{ flex: 1, textAlign: 'left', fontSize: '1.2rem' }}>
-                            {day.day}
-                        </Typography>
-                        <Typography sx={{ flex: 1, textAlign: 'right', fontSize: '1.2rem' }}>
-                            {day.hours}
-                        </Typography>
-                    </Box>
-                ))}
+                {/* Embeded Google Maps */}
+                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
+                    <GmapEmbededToolBar
+                        setMode={setMode}
+                        mapType={mapType}
+                        toggleMapType={toggleMapType}
+                        setSearchQuery={setSearchQuery}
+                        setOrigin={setOrigin}
+                        setDestination={setDestination}
+                        mode={mode}
+                    />
+                    <GmapEmbeded
+                        mode={mode}
+                        mapType={mapType}
+                        searchQuery={searchQuery}
+                        origin={origin}
+                        destination={destination}
+                        height={450}
+                    />
+                </Paper>
 
                 {/* Contact Form */}
-                <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
-                    <ContactForm />
-                </Paper>
+                <ContactForm />
             </Container>
         </>
     );

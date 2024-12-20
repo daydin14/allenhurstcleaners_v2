@@ -12,9 +12,6 @@ import usePlaceDetails from '../../../hooks/usePlaceDetails';
 // Components
 import Gtooltip from './Gtooltip';
 
-// Utils
-import { logEvent } from '../../../utils/Ganalytics';
-
 // Map Styles
 const containerStyle = {
     width: '100%',
